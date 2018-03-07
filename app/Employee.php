@@ -14,6 +14,11 @@ class Employee extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function sale()
+    {
+        return $this->hasMany('App\Sale');
+    }
+
 
 
 }
