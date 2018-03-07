@@ -19,6 +19,4 @@ class Employee extends Model
         return $this->hasMany('App\Sale');
     }
 
-
-
 }
