@@ -15,6 +15,14 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code')->unique()->nullable();
+            $table->string('name')->nullable();
+            $table->enum('type',['analgesics', 'antiallergic', 'anti-inflammatories', 'laxatives']);
+            $table->double('pricePurchase');
+            $table->double('priceSale');
+            $table->date('dateOfExpiry');
+            $table->integer('numberOfStocks');
+            $table->boolean('prescription');
             $table->timestamps();
         });
     }

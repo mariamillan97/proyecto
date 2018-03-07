@@ -15,9 +15,11 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('deuda');
-            $table->string('socSecNum');
-
+            $table->double('deuda');
+            $table->string('socSecNum')->nullable();
+            $table->integer('purchasedProducts');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

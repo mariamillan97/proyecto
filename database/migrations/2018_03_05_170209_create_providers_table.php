@@ -15,8 +15,10 @@ class CreateProvidersTable extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->nullable;
             $table->string('address');
-            $table->string('typeProduct');
+            $table->enum('typeProduct', ['analgesics', 'antiallergic', 'anti-inflammatories', 'laxatives']);
+            $table->string('email');
             $table->timestamps();
         });
     }
