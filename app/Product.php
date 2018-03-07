@@ -18,6 +18,7 @@ class Product extends Model
     public function provider()
     {
         return $this->belongsToMany('App\Provider');
+
     }
 
 }
