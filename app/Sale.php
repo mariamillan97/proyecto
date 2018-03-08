@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    protected $fillable = ['dale', 'client_id', 'employee_id'];
+    protected $fillable = ['paid','client_id', 'employee_id'];
 
     public function productSale()
     {

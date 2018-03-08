@@ -18,8 +18,8 @@ class CreateProductSalesTable extends Migration
             $table->integer('quantity');
             $table->unsignedInteger('product_id');
             $table->unsignedInteger('sale_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

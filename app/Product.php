@@ -12,7 +12,7 @@ class Product extends Model
 
      public function productSale()
      {
-         return $this->belongsTo('App\ProductSale');
+         return $this->hasMany('App\ProductSale');
      }
 
     public function provider()
