@@ -14,3 +14,26 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::resource('providers','ProviderController');
+
+Route::resource('users','UserController');
+
+Route::resource('employees','EmployeeController');
+
+Route::resource('clients','ClientController');
+
+Route::resource('sales','SaleController');
+
+Route::resource('products','ProductController');
+
+Route::resource('productSales','ProductSaleController');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+/*->name('home');*/

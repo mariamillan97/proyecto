@@ -16,7 +16,7 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
             $table->double('salary');
-            $table->enum('typeemployee',['boss','assistant','pharmacist']);
+            $table->enum('typeEmployee',['boss','assistant','pharmacist']);
             $table->unsignedInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

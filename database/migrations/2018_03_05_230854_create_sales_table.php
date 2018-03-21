@@ -16,7 +16,7 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean('paid');
-            $table->enum('waytopay',['creditCar', 'cash']);
+            $table->enum('wayToPay',['creditCar', 'cash']);
             $table->unsignedInteger('client_id');
             $table->unsignedInteger('employee_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
