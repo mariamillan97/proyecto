@@ -31,6 +31,9 @@ Route::resource('products','ProductController');
 
 Route::resource('productSales','ProductSaleController');
 
+Route::get('saludo', function(){
+    return view('saludo');
+});
 
 Auth::routes();
 

@@ -8,6 +8,6 @@ $factory->define(App\ProductSale::class, function (Faker $faker) use ($factory){
         'quantity'=> $faker->numberBetween($min = 1, $max = 15),
         'product_id' => $factory->create(App\Product::class)->id,
         'sale_id'=> $factory->create(App\Sale::class)->id,
-
+/*buscar en la ya creadas*/
     ];
 });
