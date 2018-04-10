@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    protected $fillable = ['user_id', 'socSecNum'];
+    protected $fillable = [ 'socSecNum','debt','purchasedProducts'];
 
 
     public function sale()
@@ -17,5 +17,10 @@ class Client extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->user->name .' '.$this->user->lastName1;
     }
 }

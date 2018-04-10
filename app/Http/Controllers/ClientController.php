@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Client;
+use App\User;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -12,10 +14,6 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function index()
     {
@@ -50,7 +48,7 @@ class ClientController extends Controller
         ]);
         $client=new Client($request->all());
         $client->save();
-        flash('Client creado correctamente');
+        flash('Cliente creado correctamente');
         return redirect()->route('clients.index');
     }
 

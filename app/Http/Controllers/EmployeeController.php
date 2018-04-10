@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\User;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -45,12 +46,12 @@ class EmployeeController extends Controller
     {
         $this->validate($request, [
             'salary'=>'required|max:4000',
-            'typeEmployee'=>'required|boss or assistant or pharmacist',
+
             'user_id'=>'required|exits:users,id',
         ]);
         $employee=new Employee($request->all());
         $employee->save();
-        flash('Employee creado correctamente');
+        flash('Trabajador creado correctamente');
         return redirect()->route('employees.index');
     }
 
@@ -88,12 +89,11 @@ class EmployeeController extends Controller
     {
         $this->validate($request, [
             'salary'=>'required|max:4000',
-            'typeEmployee'=>'required|boss or assistant or pharmacist',
             'user_id'=>'required|exits:users,id',
         ]);
         $employee->fill($request->all());
         $employee->save();
-        flash('Employee modificado correctamente');
+        flash('Trabajador modificado correctamente');
         return redirect()->route('employees.index');
     }
 
@@ -106,7 +106,7 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
        $employee->delete();
-       flash('Employee borrado correctamente');
+       flash('Trabajador borrado correctamente');
        return redirect()->route('employees.index');
     }
 }

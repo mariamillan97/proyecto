@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Provider;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -12,13 +12,11 @@ class ProviderController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {
+
         $providers = Provider::all();
         return view('providers/index',['providers'=>$providers]);
     }
@@ -44,13 +42,13 @@ class ProviderController extends Controller
         $this->validate($request,[
             'name'=> 'requires|max:255',
             'address'=>'requires|max:255',
-            'email'=>'requires|max:255',
+            'email'=>'email',
             'number'=>'requires|max:9'
         ]);
 
         $provider=new Provider($request->all());
         $provider->save();
-        flash('Provider creado correctamente');
+        flash('Proveedor creado correctamente');
         return redirect()->route('providers.index');
     }
 
@@ -88,12 +86,12 @@ class ProviderController extends Controller
         $this->validate($request,[
             'name'=> 'requires|max:255',
             'address'=>'requires|max:255',
-            'email'=>'requires|max:255',
+            'email'=>'email',
             'number'=>'requires|max:9'
         ]);
         $provider->fill($request->all());
         $provider->save();
-        flash('Provider actualizado correctamente');
+        flash('Proveedor actualizado correctamente');
         return redirect()->route('providers.index');
 
     }
@@ -107,7 +105,7 @@ class ProviderController extends Controller
     public function destroy(Provider $provider)
     {
         $provider->delete();
-        flash('Provider borrado correctamente');
+        flash('Proveedor borrado correctamente');
         return redirect()->route('providers.index');
 
     }

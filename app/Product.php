@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 
 {
-     protected $fillable = ['code','name','stock'];
+     protected $fillable = [
+         'name','stock','pricePurchase','priceSale',
+         'dateOfExpiry', 'prescription', 'quantity',
+         'sale_id', 'provider_id'
+     ];
 
-     public function productSale()
+     public function sale()
      {
-         return $this->hasMany('App\ProductSale');
+         return $this->belongsToMany('App\Sale')->withPivot('quantity');
      }
 
     public function provider()

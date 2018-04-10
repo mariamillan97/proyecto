@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    protected $fillable = ['paid','client_id', 'employee_id'];
+    protected $fillable = [
+        'paid','wayToPay','client_id', 'employee_id','quantity','product_id'
 
-    public function productSale()
+    ];
+
+    public function product()
     {
-        return $this->hasOne('App\ProductSale');
+        return $this->belongsToMany('App\Product')->withPivot('quantity');
+
     }
 
     public function client()

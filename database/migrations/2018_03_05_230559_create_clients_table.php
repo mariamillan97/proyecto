@@ -15,8 +15,8 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('deuda');
-            $table->string('socSecNum');
+            $table->double('debt');
+            $table->string('socSecNum',12)->unique();
             $table->integer('purchasedProducts');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

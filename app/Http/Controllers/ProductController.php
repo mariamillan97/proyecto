@@ -13,13 +13,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {
+
         $products= Product::all();
         return view('products/index',['products'=>$products]);
     }
@@ -49,10 +47,11 @@ class ProductController extends Controller
             'dateOfExpiry'=>'required|date|after:now',
             'stock'=>'required|max:100',
             'prescription'=>'required|false or true',
+
         ]);
         $product= new Product($request->all());
         $product->save();
-        flash('Product creado correctamente');
+        flash('Producto creado correctamente');
         return redirect()->route('products.index');
     }
 
@@ -97,7 +96,7 @@ class ProductController extends Controller
     ]);
         $product-> fill($request->all());
         $product->save();
-        flash('Product modificado correctamente');
+        flash('Producto modificado correctamente');
         return redirect()->route('products.index');
     }
 
@@ -110,7 +109,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        flash('Product borrado correctamente');
+        flash('Producto borrado correctamente');
         return redirect()->route('products.index');
     }
 }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Employee;
+use App\Client;
+use App\Product;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -13,10 +16,7 @@ class SaleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {
@@ -53,7 +53,7 @@ class SaleController extends Controller
         ]);
         $sale= new Sale($request->all());
         $sale->save();
-        flash('Sale creado correctamente');
+        flash('Venta creada correctamente');
         return redirect()->route('sales.index');
     }
 
@@ -65,7 +65,8 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        return view('sales/show',['sale'=>$sale]);
+        $products = Product::all()->pluck('name', 'id');
+        return view('sales/productSale',['sale'=>$sale, 'products'=>$products]);
     }
 
     /**
@@ -99,7 +100,7 @@ class SaleController extends Controller
         ]);
         $sale-> fill($request->all());
         $sale->save();
-        flash('Sale modificado correctamente');
+        flash('Venta modificado correctamente');
         return redirect()->route('sales.index');
     }
 
@@ -112,7 +113,9 @@ class SaleController extends Controller
     public function destroy(Sale $sale)
     {
         $sale->delete();
-        flash('Sale borrada correctamente');
+        flash('Venta borrada correctamente');
         return redirect()->route('sales.index');
     }
+
+
 }

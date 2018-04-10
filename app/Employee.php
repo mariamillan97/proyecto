@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    protected $fillable = ['user_id', 'salary','typeEmployee'];
+    protected $fillable = [ 'salary','role_id'];
 
 
     public function user()
@@ -18,5 +18,11 @@ class Employee extends Model
     {
         return $this->hasMany('App\Sale');
     }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
+
 
 }

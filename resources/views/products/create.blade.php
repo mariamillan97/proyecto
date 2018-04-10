@@ -8,14 +8,16 @@
                     <div class="panel-heading">Crear producto</div>
 
                     <div class="panel-body">
-                         @include ('flash::message')
 
-                        {!! Form:: open(['route'=> 'productos.store']) !!}
+
+                        {!! Form:: open(['route'=> 'products.store']) !!}
                         <div class="form-group">
 
                         {!! Form:: label ('code', 'Código del producto') !!}
 
                         //imput
+
+                            /*@foreach para la lista de productos, con dos imputs : checkbox y otro de name, value(true o false)*/
 
                         </div>
 

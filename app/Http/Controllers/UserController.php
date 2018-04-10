@@ -13,10 +13,6 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function index()
     {
@@ -44,16 +40,16 @@ class UserController extends Controller
     {
         $this->validate($request,[
            'name'=>'required|max:255',
-           'lastname1'=>'required|max:255',
-            'lastname2'=>'required|max:255',
-            'email'=>'required|max:255',
-            'password'=>'required|max:255',
-            'DNI'=>'required|max:255'
+           'lastName1'=>'required|max:255',
+            'lastName2'=>'required|max:255',
+            'email'=>'email',
+            'number'=>'numeric',
+            'DNI'=>'required|max:9'
         ]);
 
         $user=new User($request->all());
         $user->save();
-        flash('User creado correctamente');
+        flash('Usuario creado correctamente');
         return redirect()->route('users.index');
     }
 
@@ -90,16 +86,16 @@ class UserController extends Controller
     {
         $this->validate($request,[
             'name'=>'required|max:255',
-            'lastname1'=>'required|max:255',
-            'lastname2'=>'required|max:255',
-            'email'=>'required|max:255',
-            'password'=>'required|max:255',
-            'DNI'=>'required|max:255'
+            'lastName1'=>'required|max:255',
+            'lastName2'=>'required|max:255',
+            'email'=>'email',
+            'number'=>'numeric',
+            'DNI'=>'required|max:9'
         ]);
 
         $user->fill($request->all());
         $user->save();
-        flash('User modificado correctamente');
+        flash('Usuario modificado correctamente');
         return redirect()->route('users.index');
     }
 
