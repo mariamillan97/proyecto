@@ -46,7 +46,6 @@ class SaleController extends Controller
     {
         $this->validate($request, [
             'paid'=>'required|false or true',
-            'wayToPay'=>'required|creditCar or cash',
             'client_id'=>'required|exists:clients,id',
             'employee_id'=>'required|exists:employees,id'
 
@@ -93,7 +92,6 @@ class SaleController extends Controller
     {
         $this->validate($request, [
             'paid'=>'required|false or true',
-            'wayToPay'=>'required|creditCar or cash',
             'client_id'=>'required|exists:clients,id',
             'employee_id'=>'required|exists:employees,id'
 

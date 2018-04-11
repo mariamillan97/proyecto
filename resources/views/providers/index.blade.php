@@ -8,7 +8,7 @@
                     <div class="panel-heading">Proveedores</div>
 
                     <div class="panel-body">
-                        @include('flash::message')
+
                         {!! Form::open(['route' => 'providers.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear proveedor', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}

@@ -8,7 +8,7 @@
                     <div class="panel-heading">Citas</div>
 
                     <div class="panel-body">
-                        @include('flash::message')
+
                         {!! Form::open(['route' => 'clients.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear cliente', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}

@@ -8,7 +8,6 @@
                     <div class="panel-heading">Ventas</div>
 
                     <div class="panel-body">
-                        @include('flash::message')
                         {!! Form::open(['route' => 'sales.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear venta', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}

@@ -12,5 +12,10 @@ class SalesTableSeeder extends Seeder
     public function run()
     {
         factory(App\Sale::class,250)->create();
+       /* App\User::all()->each(function ($user) use ($roles) {
+            $user->roles()->attach(
+                $roles->random(rand(1, 3))->pluck('id')->toArray()
+            );
+        });*/
     }
 }

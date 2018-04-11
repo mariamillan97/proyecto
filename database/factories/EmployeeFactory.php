@@ -6,7 +6,7 @@ $factory->define(App\Employee::class, function (Faker $faker) use ($factory) {
     return [
 
         'salary'=>$faker->numberBetween($min = 1000, $max = 3000),
-        'typeEmployee'=>$faker->randomElement(['boss','assistant','pharmacist']),
+        'role_id' => $factory->create(App\Role::class)->id,
         'user_id' => $factory->create(App\User::class)->id,
 
     ];

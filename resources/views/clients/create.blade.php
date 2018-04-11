@@ -8,7 +8,7 @@
                     <div class="panel-heading">Crear cliente</div>
 
                     <div class="panel-body">
-                        @include('flash::message')
+
 
                         {!! Form::open(['route' => 'clients.store']) !!}
                         <div class="form-group">

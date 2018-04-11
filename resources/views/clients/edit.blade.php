@@ -8,7 +8,7 @@
                     <div class="panel-heading">Crear cita</div>
 
                     <div class="panel-body">
-                        @include('flash::message')
+
 
                         {!! Form::model($client, [ 'route' => ['clients.update',$client->id], 'method'=>'PUT']) !!}
 

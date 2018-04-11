@@ -8,7 +8,7 @@
                     <div class="panel-heading">Editar proveedor</div>
 
                     <div class="panel-body">
-                        @include('flash::message')
+
 
                         {!! Form::model($provider, [ 'route' => ['providers.update',$provider->id], 'method'=>'PUT']) !!}
 

@@ -8,7 +8,6 @@
                     <div class="panel-heading">Trabajadores</div>
 
                     <div class="panel-body">
-                        @include('flash::message')
                         {!! Form::open(['route' => 'employess.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear empleado', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
