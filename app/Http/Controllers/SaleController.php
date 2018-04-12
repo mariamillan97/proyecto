@@ -76,7 +76,7 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        $clients= Cliente::all();
+        $clients= Client::all();
         $employees= Employee::all();
         return view ('sales/edit',['sale'=>$sale,'client'=> $clients ,'employee'=> $employees]);
     }

@@ -11,16 +11,36 @@
 
 
                         {!! Form::open(['route' => 'providers.store']) !!}
+
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre del proveedor') !!}
-
+                            {!! Form::text('name',null,
+                            ['class'=>'form-control', 'required', 'autofocus']) !!}
 
                         </div>
 
                         <div class="form-group">
-                            {!!Form::label('email', 'Email') !!}
+                            {!! Form::label('address', 'Dirección del proveedor') !!}
+                            {!!  Form::text('address',$provider->address,
+                             ['class'=>'form-control', 'required']) !!}
 
                         </div>
+
+                        <div class="form-group">
+                            {!! Form::label('email', 'Email del proveedor') !!}
+                            {!!  Form::text('email',$provider->email,
+                             ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('number', 'Número de teléfono del proveedor') !!}
+                            {!!  Form::text('number',$provider->number,
+                             ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+
 
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

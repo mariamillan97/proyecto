@@ -5,28 +5,81 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Crear cita</div>
+                    <div class="panel-heading">Editar cliente</div>
 
                     <div class="panel-body">
 
 
-                        {!! Form::model($client, [ 'route' => ['clients.update',$client->id], 'method'=>'PUT']) !!}
+                        {!! Form::model($client, [ 'route' =>
+                        ['clients.update',$client->id],
+                         'method'=>'PUT']) !!}
+
 
                         <div class="form-group">
-                            {!! Form::label('socSecNum', 'Número de la Seguridad Social') !!}
+                            {!!Form::label('name', 'Nombre del cliente') !!}
+                            {!! Form::text('name',$client->user->name,
+                            ['class'=>'form-control', 'required', 'autofocus']) !!}
 
 
-                            //<input type="datetime-local" id="fecha_hora" name="fecha_hora" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+                        </div>
+
+
+                        <div class="form-group">
+                            {!!Form::label('lastName1', 'Primer apellido del cliente') !!}
+                            {!! Form::text('lastName1',$client->user->lastName1,
+                           ['class'=>'form-control', 'required']) !!}
 
 
                         </div>
 
                         <div class="form-group">
-                            {!!Form::label('user_id', 'Usuario:cliente') !!}
-                            <br>
-                            {!! Form::select('user_id', $users, $client->user_id, ['class' => 'form-control']) !!}
+                            {!!Form::label('lastName2', 'Segundo apellido del cliente') !!}
+                            {!! Form::text('lastName2',$client->user->lastName2,
+                          ['class'=>'form-control', 'required', 'autofocus']) !!}
+
                         </div>
-                        {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
+
+                        <div class="form-group">
+                            {!!Form::label('email', 'Email del cliente') !!}
+                            {!! Form::text('email',$client->user->email,
+                          ['class'=>'form-control', 'required', 'autofocus']) !!}
+
+                        </div>
+
+                        <div class="form-group">
+                            {!!Form::label('number', 'Número de teléfono del cliente') !!}
+                            {!! Form::text('number',$client->user->number,
+                          ['class'=>'form-control', 'required', 'autofocus']) !!}
+
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('debt','Deuda del cliente') !!}
+                            {!! Form::text('debt',$client->debt,
+                            ['class'=>'form-control', 'required']) !!}
+
+
+                        </div>
+
+
+                        <div class="form-group">
+                            {!!Form::label('socSecNum', 'Número de la Seguridad Social del cliente') !!}
+                            {!! Form::text('socSecNum', $client->socSecNum,['class'=>'form-control',
+                            'required']) !!}
+                        </div>
+
+
+
+                        <div class="form-group">
+                            {!!Form::label('purchasedProducts', 'Número de productos totales comprados') !!}
+                            {!! Form::text('purchasedProducts',$client->purchasedProducts,
+                            ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+
+
+                        {!! Form::submit('Editar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}
                     </div>

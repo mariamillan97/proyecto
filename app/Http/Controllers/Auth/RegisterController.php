@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
+use App\Employee;
+use App\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -48,11 +51,37 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+        /*lo he puesto como si es un adm se creara un
+        empleado, y sino un cliente*/
+        /*no se si ponerlo como que si $data socsecnum
+        entonces es cliente y sino empleado*/
+        if(isset($data['adm'])){
+            return Validator::make($data, [
+                'name' => 'required|max:255',
+                'lastName1'=>'required|max:255',
+                'lastName2'=>'required|max:255',
+                'number'=>'numeric',
+                'DNI'=>'required|max:9',
+                'salary'=>'required|max:4000',
+                'user_id'=>'required|exits:users,id',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6|confirmed',
+            ]);
+        }else{
+            return Validator::make($data,[
+                'name'=> 'required|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'DNI'=>'required|max:9',
+                'lastName1'=>'required|max:255',
+                'lastName2'=>'required|max:255',
+                'number'=>'numeric',
+                'password' => 'required|string|min:6|confirmed',
+
+            ]);
+
+
+        }
+
     }
 
     /**
@@ -63,13 +92,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = new User($data);
-        $user->password = Hash::make($user->password);
-        $user-save();
-        $client = new Client($data);
-        $client->user_id = $user->id;
-        $client->save();
+
+      $user = new User();
+        $user->name = $data['name'];
+        $user->lastName1 = $data ['lastName1'];
+        $user->lastName2 = $data ['lastName2'];
+        $user->email = $data ['email'];
+        $user->number= $data ['number'];
+        $user ->password = bcrypt($data['password']);
+        $user->save();
+
+        if(isset($data['adm'])){
+            $client= new Client($data);
+            $client-> user_id=$user->id;
+            $client->save();
+        }else{
+            $employee= new Client($data);
+            $employee-> user_id=$user->id;
+            $employee->save();
+        }
+
         return $user;
+
+        /*$user = new User();
+         $user->password = Hash::make($user->password);
+         $user-save();
+         $client = new Client($data);
+         $client->user_id = $user->id;
+         $client->save();
+         return $user;*/
+
         /*return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

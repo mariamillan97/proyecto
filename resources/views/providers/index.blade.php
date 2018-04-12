@@ -14,10 +14,13 @@
                         {!! Form::close() !!}
 
                         <br><br>
+
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Nombre</th>
+                                <th>Dirección</th>
                                 <th>Email</th>
+                                <th>Teléfono</th>
 
                             </tr>
 
@@ -26,7 +29,10 @@
 
                                 <tr>
                                     <td>{{ $provider->name }}</td>
+                                    <td>{{ $provider->address }}</td>
                                     <td>{{ $provider->email }}</td>
+                                    <td>{{ $provider->number }}</td>
+
                                     <td>
                                         {!! Form::open(['route' => ['providers.edit',$provider->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}

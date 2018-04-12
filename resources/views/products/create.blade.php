@@ -11,23 +11,59 @@
 
 
                         {!! Form:: open(['route'=> 'products.store']) !!}
+
+
                         <div class="form-group">
 
-                        {!! Form:: label ('code', 'Código del producto') !!}
-
-                        //imput
-
-                            /*@foreach para la lista de productos, con dos imputs : checkbox y otro de name, value(true o false)*/
+                            {!! Form:: label ('name', 'Nombre del producto') !!}
+                            {!! Form::text('name',null,
+                            ['class'=>'form-control', 'required', 'autofocus']) !!}
 
                         </div>
 
                         <div class="form-group">
-                             {!! Form::label ('name', 'Nombre del producto') !!}
 
-                         </div>
-                         <div class="form-group">
-                            {!! Form::label ('stock', 'Stock Producto') !!}
-                         </div>
+                            {!! Form:: label ('pricePurchase', 'Precio de compra del producto') !!}
+                            {!! Form::text('pricePurchase',null,
+                            ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+                        <div class="form-group">
+
+                            {!! Form:: label ('priceSale', 'Precio de venta del producto') !!}
+                            {!! Form::text('priceSale',null,
+                            ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+                        <div class="form-group">
+
+                            {!! Form:: label ('dateOfExpiry', 'Fecha de caducidad del producto') !!}
+                            {!! Form::text('dateOfExpiry',null,
+                            ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            {!! Form:: label ('stock', 'Cantidad disponible del producto') !!}
+                            {!! Form::text('stock',null,
+                            ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            {!! Form:: label ('prescription', 'Necesidad de receta del producto') !!}
+                            {!! Form::text('prescription',null,
+                            ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+
                         {!! Form:: submit ('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

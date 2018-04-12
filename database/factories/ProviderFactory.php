@@ -10,5 +10,6 @@ $factory->define(App\Provider::class, function (Faker $faker) use ($factory){
         'email'=>$faker->unique()->safeEmail,
         'number'=>$faker->unique()->phoneNumber,
 
+
     ];
 });

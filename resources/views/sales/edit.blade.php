@@ -9,24 +9,32 @@
 
                     <div class="panel-body">
 
-                        {!! Form::model($sale, [ 'route' => ['sales.update',$sale->id], 'method'=>'PUT']) !!}
+                        {!! Form::model($sale, [ 'route' =>
+                        ['sales.update',$sale->id], 'method'=>'PUT']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('paid', 'La venta ha sido o no pagada') !!}
-
+                            {!! Form::label('paid', 'Venta pagada o no pagada') !!}
+                            {!!  Form::text('paid',$sale->paid,
+                             ['class'=>'form-control', 'required']) !!}
 
                         </div>
 
                         <div class="form-group">
                             {!!Form::label('client_id', 'Cliente') !!}
                             <br>
-                            {!! Form::select('client_id', $clients, $sale->client_id, ['class' => 'form-control']) !!}
+                            {!! Form::select('client_id', $clients,
+                             $sale->client_id, ['class' => 'form-control', 'required']) !!}
                         </div>
+
                         <div class="form-group">
-                            {!!Form::label('employee_id', 'Trabajador') !!}
+                            {!!Form::label('employee_id', 'Empleado') !!}
                             <br>
-                            {!! Form::select('employee_id', $employess, $sale->employee_id, ['class' => 'form-control']) !!}
+                            {!! Form::select('employee_id', $employees,
+                             $sale->employee_id, ['class' => 'form-control', 'required']) !!}
                         </div>
+
+
+
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

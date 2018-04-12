@@ -41,7 +41,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'deuda'=>'required|max:50',
+            'debt'=>'required|max:50',
             'socSecNum'=>'required|max:12',
             'purchasedProducts'=>'required|max:50',
             'user_id'=>'required|exists:users,id'
@@ -86,7 +86,7 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
         $this->validate($request, [
-            'deuda'=>'required|max:50',
+            'debt'=>'required|max:50',
             'socSecNum'=>'required|max:12',
             'purchasedProducts'=>'required|max:50',
             'user_id'=>'required|exists:users,id'

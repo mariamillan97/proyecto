@@ -10,20 +10,66 @@
                     <div class="panel-body">
 
 
-                        {!! Form::model($employee, [ 'route' => ['employees.update',$employee->id], 'method'=>'PUT']) !!}
+                        {!! Form::model($employee, [ 'route' =>
+                        ['employees.update',$employee->id],
+                        'method'=>'PUT']) !!}
+
+                        <div class="form-group">
+                            {!! Form::label('name', 'Nombre del empleado') !!}
+                            {!! Form::text('name',$employee->user->name,
+                            ['class'=>'form-control', 'required', 'autofocus']) !!}
+
+
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('lastName1', 'Primer apellido del empleado') !!}
+                            {!! Form::text('lastName1',$employee->user->lastName1,
+                            ['class'=>'form-control', 'required']) !!}
+
+
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('lastName2', 'Segundo apellido del empleado') !!}
+                            {!! Form::text('lastName2',$employee->user->lastName2,
+                            ['class'=>'form-control', 'required']) !!}
+
+
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('email', 'Email del empleado') !!}
+                            {!! Form::text('email',$employee->user->email,
+                            ['class'=>'form-control', 'required']) !!}
+
+
+                        </div>
+
+
+                        <div class="form-group">
+                            {!! Form::label('number', 'Número de teléfono del empleado') !!}
+                            {!! Form::text('number',$employee->user->number,
+                            ['class'=>'form-control', 'required']) !!}
+
+
+                        </div>
 
                         <div class="form-group">
                             {!! Form::label('salary', 'Salario del empleado') !!}
+                            {!! Form::text('salary',$employee->salary,
+                            ['class'=>'form-control', 'required']) !!}
 
 
                         </div>
 
                         <div class="form-group">
-                            {!!Form::label('typeEmployee', 'Cargo del empleado') !!}
+                            {!!Form::label('role_id', 'Rol del empleado') !!}
+                           
 
                         </div>
 
-                        {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
+                        {!! Form::submit('Editar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}
                     </div>

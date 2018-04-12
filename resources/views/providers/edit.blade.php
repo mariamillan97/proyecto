@@ -9,18 +9,37 @@
 
                     <div class="panel-body">
 
-
-                        {!! Form::model($provider, [ 'route' => ['providers.update',$provider->id], 'method'=>'PUT']) !!}
+                        {!! Form::model($provider, [ 'route' =>
+                        ['providers.update',$provider->id], 'method'=>'PUT']) !!}
 
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre del proveedor') !!}
+                           {!!  Form::text('name',$provider->name,
+                            ['class'=>'form-control', 'required', 'autofocus']) !!}
 
                         </div>
 
                         <div class="form-group">
-                            {!!Form::label('email', 'Email') !!}
+                            {!! Form::label('address', 'Dirección del proveedor') !!}
+                            {!!  Form::text('address',$provider->address,
+                             ['class'=>'form-control', 'required']) !!}
 
                         </div>
+
+                        <div class="form-group">
+                            {!! Form::label('email', 'Email del proveedor') !!}
+                            {!!  Form::text('email',$provider->email,
+                             ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('number', 'Número de teléfono del proveedor') !!}
+                            {!!  Form::text('number',$provider->number,
+                             ['class'=>'form-control', 'required']) !!}
+
+                        </div>
+
 
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

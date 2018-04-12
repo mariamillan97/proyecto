@@ -8,8 +8,10 @@
                     <div class="panel-heading">Ventas</div>
 
                     <div class="panel-body">
-                        {!! Form::open(['route' => 'sales.create', 'method' => 'get']) !!}
-                        {!!   Form::submit('Crear venta', ['class'=> 'btn btn-primary'])!!}
+                        {!! Form::open(['route' => 'sales.create',
+                         'method' => 'get']) !!}
+                        {!!   Form::submit('Crear venta',
+                        ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
 
                         <br><br>
@@ -17,7 +19,7 @@
                             <tr>
                                 <th>Pagado</th>
                                 <th>Cliente</th>
-                                <th>Trabajador</th>
+                                <th>Empleado</th>
 
                             </tr>
 
@@ -26,8 +28,8 @@
 
                                 <tr>
                                     <td>{{ $sale->paid }}</td>
-                                    <td>{{ $sale->cliente}}</td>
-                                    <td>{{ $sale->trabajador}}</td>
+                                    <td>{{ $sale->client->id}}</td>
+                                    <td>{{ $sale->employee->id}}</td>
                                     <td>
                                         {!! Form::open(['route' => ['sales.edit',$sale->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
