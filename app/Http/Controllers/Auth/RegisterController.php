@@ -43,6 +43,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $roles = Role::all()->pluck('name','id');
+
+        return view('auth.register',['roles'=>$roles]);
+
+    }
     /**
      * Get a validator for an incoming registration request.
      *

@@ -31,8 +31,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        $clients= Client::all();
-        $employees= Employee::all();
+        $clients= Client::all()->pluck('full_name', 'id');
+        $employees= Employee::all()->pluck('full_name', 'id');
         return view('sales/create',['clients'=>$clients, 'employees'=>$employees]);
     }
 
@@ -76,9 +76,9 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        $clients= Client::all();
-        $employees= Employee::all();
-        return view ('sales/edit',['sale'=>$sale,'client'=> $clients ,'employee'=> $employees]);
+        $client= $sale ->client;
+        $employee= $sale ->employee;
+        return view ('sales/edit',['sale'=>$sale,'client'=> $client ,'employee'=> $employee]);
     }
 
     /**
@@ -114,6 +114,34 @@ class SaleController extends Controller
         flash('Venta borrada correctamente');
         return redirect()->route('sales.index');
     }
+
+    public function cantidadProducto($id, Request $request)
+    {
+
+        $this->validate($request, [
+            'quantity'=>'required|max:25'
+
+        ]);
+        $sale = Sale::find($id);
+        $sale->products()->attach($request->product_id, ['quantity'=>$request->quantity,
+            'sale_id'=>$sale->id]);
+
+
+        return redirect()->route('sales.show', ['sale'=>$sale]);
+    }
+
+    public function borrarProducto($idProduct ,$idSale)
+    {
+        $product = Product::find($idProduct);
+        $sale = Sale::find($idSale);
+        $sale->products()->detach($product->id);
+
+
+
+        return redirect()->route('sales.show', ['sale'=>$sale]);
+    }
+
+
 
 
 }

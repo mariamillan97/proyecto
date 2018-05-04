@@ -11,6 +11,6 @@ class ProvidersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Provider::class,10)->create();
+        factory(App\Provider::class,8)->create();
     }
 }

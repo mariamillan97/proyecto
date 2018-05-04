@@ -21,6 +21,9 @@
                                 <th>Cliente</th>
                                 <th>Empleado</th>
 
+
+                                <th colspan="3">Acciones</th>
+
                             </tr>
 
                             @foreach ($sales as $sale)
@@ -28,11 +31,17 @@
 
                                 <tr>
                                     <td>{{ $sale->paid }}</td>
-                                    <td>{{ $sale->client->id}}</td>
-                                    <td>{{ $sale->employee->id}}</td>
+                                    <td>{{ $sale->client->user->name}}</td>
+                                    <td>{{ $sale->employee->user->name}}</td>
+
                                     <td>
                                         {!! Form::open(['route' => ['sales.edit',$sale->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                    <td>
+                                        {!! Form::open(['route' => ['sales.show',$sale->id], 'method' => 'get']) !!}
+                                        {!!   Form::submit('Productos', ['class'=> 'btn btn-info'])!!}
                                         {!! Form::close() !!}
                                     </td>
                                     <td>

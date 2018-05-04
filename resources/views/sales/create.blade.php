@@ -10,6 +10,7 @@
                     <div class="panel-body">
 
                         {!! Form::open(['route' => 'sales.store']) !!}
+
                         <div class="form-group">
                             {!! Form::label('paid', 'La venta ha sido o no pagada') !!}
 

@@ -22,7 +22,7 @@
                                    <th>Fecha de caducidad</th>
                                    <th>Stock</th>
                                    <th>Receta</th>
-
+                                   <th colspan="2">Acciones</th>
 
                                </tr>
 

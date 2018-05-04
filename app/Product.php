@@ -14,10 +14,15 @@ class Product extends Model
          'sale_id', 'provider_id'
      ];
 
-     public function sale()
+   public function productSale()
      {
-         return $this->belongsToMany('App\Sale')->withPivot('quantity');
+         return $this->hasMany('App\productSale'); //  ->withPivot('quantity');
      }
+
+    /*public function sale()
+    {
+        return $this->belongsToMany('App\Sale')->withPivot('quantity');
+    }*/
 
     public function provider()
     {

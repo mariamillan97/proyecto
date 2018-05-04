@@ -22,14 +22,14 @@
                         <div class="form-group">
                             {!!Form::label('client_id', 'Cliente') !!}
                             <br>
-                            {!! Form::select('client_id', $clients,
+                            {!! Form::select('client_id', $client,
                              $sale->client_id, ['class' => 'form-control', 'required']) !!}
                         </div>
 
                         <div class="form-group">
                             {!!Form::label('employee_id', 'Empleado') !!}
                             <br>
-                            {!! Form::select('employee_id', $employees,
+                            {!! Form::select('employee_id', $employee,
                              $sale->employee_id, ['class' => 'form-control', 'required']) !!}
                         </div>
 

@@ -17,6 +17,10 @@ class ProductController extends Controller
 
     public function index()
     {
+/*tengo que poner que si es un cliente le mando a la vidta indexClient*/
+/* if (userTipo == "Cliente")      return view('products/indexCliente',['products'=>$products]);
+ else if (userTipo =="Empleado")         return view('products/index',['products'=>$products]);*/
+
 
         $products= Product::all();
         return view('products/index',['products'=>$products]);

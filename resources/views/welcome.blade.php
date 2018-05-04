@@ -13,12 +13,22 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+               /background-color: #fff;
+                color: rgba(0, 226, 197, 0.7);
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+               /* background-image: url("http://plataforma.enclave4.es/Plateas-theme/images/backgrounds/fondo_login.png");
+                background-size: 100%;
+                background-color: rgba(15, 74, 155, 0);
+                color: #2034b0;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: auto;*/
+
+
             }
 
             .full-height {
@@ -47,23 +57,57 @@
 
             .title {
                 font-size: 84px;
+                /*font-size: 120px;*/
+                color: rgba(174, 0, 0, 0.8);
+                font-family: Red;
+                text-align: left;
+
+
             }
 
             .links > a {
-                color: #636b6f;
+               /* color: #636b6f;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
+                text-transform: uppercase;*/
+
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 18px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
                 text-transform: uppercase;
+
+
+            }
+
+            .contenido {
+                color : #2e3436;
+                font-size: 15px;
+                font-weight: 600;
+                margin-top: -15%;
+                margin-left: 5%;
+
+
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+               /*margin-bottom: 30px;*/
+                margin-left: 5%;
+                margin-top: -30%;
+
             }
+
         </style>
     </head>
+
+    <img src = "http://www.vectorlogo.es/wp-content/uploads/2014/12/logo-vector-universidad-sevilla.jpg"
+         style = "width:180px;height: 100px">
+
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
