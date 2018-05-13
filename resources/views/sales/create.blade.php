@@ -14,22 +14,19 @@
                         <div class="form-group">
                             {!! Form::label('paid', 'La venta ha sido o no pagada') !!}
 
-                            {!!  Form::text('paid',$sale->paid,
-                             ['class'=>'form-control', 'required']) !!}
+                            {!!  Form::text('paid',null,['class'=>'form-control', 'required']) !!}
 
                         </div>
 
                         <div class="form-group">
                             {!!Form::label('client_id', 'Cliente') !!}
                             <br>
-                            {!! Form::select('client_id', $clients, $sale->client_id,
-                            ['class' => 'form-control']) !!}
+                            {!! Form::select('client_id', $clients,['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!!Form::label('employee_id', 'Trabajador') !!}
                             <br>
-                            {!! Form::select('employee_id', $employees, $sale->employee_id,
-                            ['class' => 'form-control','required']) !!}
+                            {!! Form::select('employee_id', $employees,['class' => 'form-control','required']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Role;
 use App\Employee;
-use App\Client;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+//use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -32,8 +31,8 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
-    /**
+       /**
+        *
      * Create a new controller instance.
      *
      * @return void
@@ -62,7 +61,7 @@ class RegisterController extends Controller
         empleado, y sino un cliente*/
         /*no se si ponerlo como que si $data socsecnum
         entonces es cliente y sino empleado*/
-        if(isset($data['adm'])){
+        //if(isset($data['adm'])){
             return Validator::make($data, [
                 'name' => 'required|max:255',
                 'lastName1'=>'required|max:255',
@@ -73,8 +72,9 @@ class RegisterController extends Controller
                 'user_id'=>'required|exits:users,id',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
+                'role_id'=> 'required|exits:roles,id'
             ]);
-        }else{
+       /* }else{
             return Validator::make($data,[
                 'name'=> 'required|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
@@ -84,11 +84,7 @@ class RegisterController extends Controller
                 'number'=>'numeric',
                 'password' => 'required|string|min:6|confirmed',
 
-            ]);
-
-
-        }
-
+            ]);*/
     }
 
     /**
@@ -100,7 +96,32 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-      $user = new User();
+
+     /*   $user->lastName1 = $data ['lastName1'];
+        $user->lastName2 = $data ['lastName2'];
+        $user->email = $data ['email'];
+        $user->number= $data ['number'];*/
+        $user = new User;
+        $user->name = $data['name'];
+        $user->lastName1 = $data['lastName1'];
+        $user->lastName2 = $data['lastName2'];
+        $user->DNI = $data['DNI'];
+        $user->number= $data ['number'];
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+
+        $employee = new Employee;
+
+        $employee->salary = $data['salary'];
+        $employee = DB::table('employees')->select('boss', 'pharmacist','adm')->get();
+        $user->save();
+
+        $employee->user()->associate($user);
+        $employee->save();
+
+        return $user;
+    }
+        /*$user = new User();
         $user->name = $data['name'];
         $user->lastName1 = $data ['lastName1'];
         $user->lastName2 = $data ['lastName2'];
@@ -108,6 +129,7 @@ class RegisterController extends Controller
         $user->number= $data ['number'];
         $user ->password = bcrypt($data['password']);
         $user->save();
+
 
         if(isset($data['adm'])){
             $client= new Client($data);
@@ -119,7 +141,7 @@ class RegisterController extends Controller
             $employee->save();
         }
 
-        return $user;
+        return $user;*/
 
         /*$user = new User();
          $user->password = Hash::make($user->password);
@@ -134,5 +156,5 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);*/
-    }
+
 }

@@ -26,17 +26,10 @@ Route::resource('users','UserController');
 Route::resource('employees','EmployeeController');
 Route::resource('clients','ClientController');
 Route::resource('sales','SaleController');
+
 Route::resource('products','ProductController');
+
 Route::resource('productSales','ProductSaleController');
-
-Route::get('/registerClient', function(){
-    return view('auth.registerClient');
-});
-
-Route::get('/homeClient', function(){
-    return view('homeClient');
-})->name('homeClient');
-
 
 Route::post('/cantidadProducto/{id}', 'SaleController@cantidadProducto')->name('sales.cantidadProducto');
 

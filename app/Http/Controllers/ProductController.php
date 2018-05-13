@@ -50,7 +50,7 @@ class ProductController extends Controller
             'priceSale'=>'required|max:210',
             'dateOfExpiry'=>'required|date|after:now',
             'stock'=>'required|max:100',
-            'prescription'=>'required|false or true',
+          'prescription'=>'',
 
         ]);
         $product= new Product($request->all());
@@ -96,7 +96,7 @@ class ProductController extends Controller
         'priceSale'=>'required|max:210',
         'dateOfExpiry'=>'required|date|after:now',
         'stock'=>'required|max:100',
-        'prescription'=>'required|false or true',
+       'prescription'=>'',
     ]);
         $product-> fill($request->all());
         $product->save();

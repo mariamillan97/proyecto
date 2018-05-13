@@ -28,8 +28,9 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $users= User::all();
-        return view ('clients/create',['users'=>$users]);
+        /*$users= User::all();
+        return view ('clients/create',['users'=>$users]);*/
+        return view('clients/create');
     }
 
     /**
@@ -72,8 +73,10 @@ class ClientController extends Controller
     public function edit(Client $client)
     {
 
-        $users = User::all();
-        return view ('clients/edit',['client'=>$client,'users'=>$users]);
+        /*$users = User::all();
+        return view ('clients/edit',['client'=>$client,'users'=>$users]);*/
+        return view('clients/edit',['client'=>$client]);
+
     }
 
     /**
@@ -86,10 +89,16 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
         $this->validate($request, [
+            'DNI' =>'required|max:9',
+            'name'=>'required|max:255',
+            'lastName1'=>'required|max:255',
+            'lastName2'=>'required|max:255',
+            'number'=>'numeric',
+            'email'=>'email',
             'debt'=>'required|max:50',
             'socSecNum'=>'required|max:12',
             'purchasedProducts'=>'required|max:50',
-            'user_id'=>'required|exists:users,id'
+           // 'user_id'=>'required|exists:users,id'
         ]);
         $client->fill($request->all());
         $client->save();

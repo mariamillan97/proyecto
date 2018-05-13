@@ -108,7 +108,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        flash('User borrado correctamente');
+        flash('Usuario borrado correctamente');
         return redirect()->route('users.index');
     }
 }

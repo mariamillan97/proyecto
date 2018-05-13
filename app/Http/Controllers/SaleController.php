@@ -33,6 +33,10 @@ class SaleController extends Controller
     {
         $clients= Client::all()->pluck('full_name', 'id');
         $employees= Employee::all()->pluck('full_name', 'id');
+
+       /* $client= $sale ->client;
+        $employee= $sale ->employee;*/
+
         return view('sales/create',['clients'=>$clients, 'employees'=>$employees]);
     }
 
@@ -45,7 +49,7 @@ class SaleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'paid'=>'required|false or true',
+            //'paid'=>'required|false or true',
             'client_id'=>'required|exists:clients,id',
             'employee_id'=>'required|exists:employees,id'
 
@@ -76,9 +80,12 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        $client= $sale ->client;
-        $employee= $sale ->employee;
-        return view ('sales/edit',['sale'=>$sale,'client'=> $client ,'employee'=> $employee]);
+       /* $client= $sale ->client;
+        $employee= $sale ->employee;*/
+
+        $clients= Client::all()->pluck('full_name', 'id');
+        $employees= Employee::all()->pluck('full_name', 'id');
+        return view ('sales/edit',['sale'=>$sale,'client'=> $clients ,'employee'=> $employees]);
     }
 
     /**
@@ -91,7 +98,7 @@ class SaleController extends Controller
     public function update(Request $request, Sale $sale)
     {
         $this->validate($request, [
-            'paid'=>'required|false or true',
+           // 'paid'=>'required|false or true',
             'client_id'=>'required|exists:clients,id',
             'employee_id'=>'required|exists:employees,id'
 

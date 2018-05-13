@@ -95,19 +95,29 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">Teléfono</label>
+                            <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
+                                <label for="number" class="col-md-4 control-label">Teléfono</label>
 
                                 <div class="col-md-6">
-                                    <input id="telefono" type="telefono" class="form-control" name="telefono" value="{{ old('telefono') }}" required>
+                                    <input id="number" type="number" class="form-control" name="number" value="{{ old('number') }}" required>
 
-                                    @if ($errors->has('telefono'))
+                                    @if ($errors->has('number'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('telefono') }}</strong>
+                                        <strong>{{ $errors->first('number') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label for="role_id" class="col-md-4 control-label">Rol</label>
+
+                                    <br>
+                                    {!! Form::select('role_id', $roles, ['class' => 'form-control', 'required']) !!}
+                                </div>
+                            </div>
+
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="col-md-4 control-label">Password</label>
@@ -130,6 +140,8 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
+
+
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

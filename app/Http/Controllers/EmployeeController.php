@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\Employee;
 use App\User;
 use Illuminate\Http\Request;
@@ -33,8 +34,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $users=User::all()->pluck('name','id');
-        return view ('employees/create',['users'=>$users]);
+        $roles=Role::all()->pluck('name');
+        return view ('employees/create',['roles'=>$roles]);
     }
 
     /**
@@ -46,9 +47,14 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'salary'=>'required|max:4000',
-
-            'user_id'=>'required|exits:users,id',
+            'DNI' =>'required|max:9',
+            'name'=>'required|max:255',
+            'lastName1'=>'required|max:255',
+            'lastName2'=>'required|max:255',
+            'number'=>'numeric',
+            'email'=>'email',
+            'role_id'=> 'required|exists:roles,id',
+            'salary'=>'required|max:4000'
         ]);
         $employee=new Employee($request->all());
         $employee->save();
@@ -75,8 +81,9 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        $users=User::all()->pluck('name','id');
-        return view('employees/edit',['employee'=>$employee, 'users'=>$users]);
+        ////AQUI NO SE SI ES ROL O ROLES
+        $role = Role::all()->pluck('name');
+        return view('employees/edit',['employee'=>$employee, 'role'=>$role]);
     }
 
     /**
@@ -89,10 +96,20 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee)
     {
         $this->validate($request, [
-            'salary'=>'required|max:4000',
-            'user_id'=>'required|exits:users,id',
+            'DNI' =>'required|max:9',
+            'name'=>'required|max:255',
+            'lastName1'=>'required|max:255',
+            'lastName2'=>'required|max:255',
+            'number'=>'numeric',
+            'email'=>'email',
+            'role_id'=> 'required|exists:roles,id',
+            'salary'=>'required|max:4000'
         ]);
+        $user = $employee->user;
+        $user->fill($request->all());
         $employee->fill($request->all());
+        $employee->user_id = $user->id;
+        $user->save();
         $employee->save();
         flash('Trabajador modificado correctamente');
         return redirect()->route('employees.index');

@@ -57,14 +57,14 @@
 
                         <div class="form-group">
                             {!! Form::label('salary', 'Salario del empleado') !!}
-                            {!! Form::text('salary',$employee->salary,
-                            ['class'=>'form-control', 'required']) !!}
+                            {!! Form::text('salary',$employee->salary,['class'=>'form-control', 'required']) !!}
 
 
                         </div>
 
                         <div class="form-group">
                             {!!Form::label('role_id', 'Rol del empleado') !!}
+                            {!! Form::select('role_id', $roles, ['class' => 'form-control', 'required']) !!}
                            
 
                         </div>

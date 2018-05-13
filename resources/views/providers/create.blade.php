@@ -21,21 +21,21 @@
 
                         <div class="form-group">
                             {!! Form::label('address', 'Dirección del proveedor') !!}
-                            {!!  Form::text('address',$provider->address,
+                            {!!  Form::text('address',null,
                              ['class'=>'form-control', 'required']) !!}
 
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('email', 'Email del proveedor') !!}
-                            {!!  Form::text('email',$provider->email,
+                            {!!  Form::text('email',null,
                              ['class'=>'form-control', 'required']) !!}
 
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('number', 'Número de teléfono del proveedor') !!}
-                            {!!  Form::text('number',$provider->number,
+                            {!!  Form::text('number',null,
                              ['class'=>'form-control', 'required']) !!}
 
                         </div>
