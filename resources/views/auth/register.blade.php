@@ -99,7 +99,7 @@
                                 <label for="number" class="col-md-4 control-label">Teléfono</label>
 
                                 <div class="col-md-6">
-                                    <input id="number" type="number" class="form-control" name="number" value="{{ old('number') }}" required>
+                                    <input id="number" type="text" class="form-control" name="number" value="{{ old('number') }}" required>
 
                                     @if ($errors->has('number'))
                                         <span class="help-block">
@@ -115,6 +115,7 @@
 
                                     <br>
                                     {!! Form::select('role_id', $roles, ['class' => 'form-control', 'required']) !!}
+
                                 </div>
                             </div>
 

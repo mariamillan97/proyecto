@@ -41,10 +41,10 @@ class UserController extends Controller
         $this->validate($request,[
            'name'=>'required|max:255',
            'lastName1'=>'required|max:255',
-            'lastName2'=>'required|max:255',
+           'lastName2'=>'required|max:255',
             'email'=>'email',
-            'number'=>'numeric',
-            'DNI'=>'required|max:9'
+            'number'=>'required',
+            'DNI'=>'required'
         ]);
 
         $user=new User($request->all());
@@ -89,8 +89,8 @@ class UserController extends Controller
             'lastName1'=>'required|max:255',
             'lastName2'=>'required|max:255',
             'email'=>'email',
-            'number'=>'numeric',
-            'DNI'=>'required|max:9'
+            'number'=>'required',
+            'DNI'=>'required'
         ]);
 
         $user->fill($request->all());

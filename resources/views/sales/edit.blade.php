@@ -13,11 +13,15 @@
                         ['sales.update',$sale->id], 'method'=>'PUT']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('paid', 'Venta pagada o no pagada') !!}
-                            {!!  Form::text('paid',$sale->paid,
-                             ['class'=>'form-control', 'required']) !!}
+                            {!! Form::label('paid', '¿Ha sio pagada la venta?') !!}
+                            <br>
+
+                            <input name = "paid" type = "radio" value = "0" > <br>
+
+                            <input name = "paid" type = "radio" value = "1" >
 
                         </div>
+
 
                         <div class="form-group">
                             {!!Form::label('client_id', 'Cliente') !!}

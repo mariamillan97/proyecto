@@ -46,15 +46,15 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'DNI' =>'required|max:9',
+       $this->validate($request, [
+           'DNI' =>'required|max:9',
             'name'=>'required|max:255',
             'lastName1'=>'required|max:255',
             'lastName2'=>'required|max:255',
-            'number'=>'numeric',
+            'number'=>'required',
             'email'=>'email',
             'role_id'=> 'required|exists:roles,id',
-            'salary'=>'required|max:4000'
+            'salary'=>'required'
         ]);
         $employee=new Employee($request->all());
         $employee->save();
@@ -82,7 +82,7 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         ////AQUI NO SE SI ES ROL O ROLES
-        $role = Role::all()->pluck('name');
+        $role = Role::all();
         return view('employees/edit',['employee'=>$employee, 'role'=>$role]);
     }
 
@@ -96,14 +96,14 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee)
     {
         $this->validate($request, [
-            'DNI' =>'required|max:9',
+           /* 'DNI' =>'required',
             'name'=>'required|max:255',
             'lastName1'=>'required|max:255',
             'lastName2'=>'required|max:255',
-            'number'=>'numeric',
-            'email'=>'email',
+            'number'=>'required',
+            'email'=>'email',*/
             'role_id'=> 'required|exists:roles,id',
-            'salary'=>'required|max:4000'
+            'salary'=>'required'
         ]);
         $user = $employee->user;
         $user->fill($request->all());

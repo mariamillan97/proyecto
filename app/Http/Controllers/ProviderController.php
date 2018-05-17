@@ -40,10 +40,10 @@ class ProviderController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=> 'requires|max:255',
-            'address'=>'requires|max:255',
+            'name'=> 'required|max:255',
+            'address'=>'required|max:255',
             'email'=>'email',
-            'number'=>'requires|max:9'
+            'number'=>'required|max:9'
         ]);
 
         $provider=new Provider($request->all());
@@ -83,11 +83,11 @@ class ProviderController extends Controller
      */
     public function update(Request $request, Provider $provider)
     {
-        $this->validate($request,[
-            'name'=> 'requires|max:255',
-            'address'=>'requires|max:255',
-            'email'=>'email',
-            'number'=>'requires|max:9'
+        $this->validate($request, [
+            'name'=>'required|max:255',
+            'address'=>'required|max:255',
+            'number'=>'required',
+            'email'=>'email'
         ]);
         $provider->fill($request->all());
         $provider->save();

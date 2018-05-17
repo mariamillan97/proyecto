@@ -12,9 +12,12 @@
                         {!! Form::open(['route' => 'sales.store']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('paid', 'La venta ha sido o no pagada') !!}
+                            {!! Form::label('paid', '¿Ha sio pagada la venta?') !!}
+                            <br>
+                            {{Form :: radio ('paid', 'SI')}}
+                            <br>
+                            {{Form :: radio ('paid', 'NO')}}
 
-                            {!!  Form::text('paid',null,['class'=>'form-control', 'required']) !!}
 
                         </div>
 
@@ -23,10 +26,12 @@
                             <br>
                             {!! Form::select('client_id', $clients,['class' => 'form-control']) !!}
                         </div>
+
                         <div class="form-group">
                             {!!Form::label('employee_id', 'Trabajador') !!}
                             <br>
-                            {!! Form::select('employee_id', $employees,['class' => 'form-control','required']) !!}
+                            {!! Form::select('employee_id', $employees,['class' => 'form-control']) !!}
+
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

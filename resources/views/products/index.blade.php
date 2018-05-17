@@ -40,8 +40,7 @@
                                 <td>
                                     {!! Form::open(['route'=>
                                     ['products.edit', $product->id],'method'=>'get']) !!}
-                                    {!! Form::submit('Editar',
-                                    ['class'=>'btn btn-warning']) !!}
+                                    {!! Form::submit('Editar',['class'=>'btn btn-warning']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 <td>

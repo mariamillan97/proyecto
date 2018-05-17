@@ -44,19 +44,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+      $this->validate($request,[
             'name'=>'required|max:255',
-            'pricePurchased'=>'required|max:200',
-            'priceSale'=>'required|max:210',
-            'dateOfExpiry'=>'required|date|after:now',
+            'pricePurchase'=>'required',
+            'priceSale'=>'required',
+            'dateOfExpiry'=>'required|after:today',
             'stock'=>'required|max:100',
-          'prescription'=>'',
+            'prescription'=>'required'
 
         ]);
         $product= new Product($request->all());
         $product->save();
         flash('Producto creado correctamente');
         return redirect()->route('products.index');
+
     }
 
     /**
@@ -90,13 +91,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $this->validate($request,[
+       $this->validate($request,[
         'name'=>'required|max:255',
-        'pricePurchased'=>'required|max:200',
-        'priceSale'=>'required|max:210',
-        'dateOfExpiry'=>'required|date|after:now',
+        'pricePurchase'=>'required',
+       'priceSale'=>'required',
+        'dateOfExpiry'=>'required|after:today',
         'stock'=>'required|max:100',
-       'prescription'=>'',
+       'prescription'=>'required'
     ]);
         $product-> fill($request->all());
         $product->save();

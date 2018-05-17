@@ -63,10 +63,9 @@
                         </div>
 
                         <div class="form-group">
-                            {!!Form::label('role_id', 'Rol del empleado') !!}
-                            {!! Form::select('role_id', $roles, ['class' => 'form-control', 'required']) !!}
-                           
-
+                            {!!Form::label('role_id', 'Rol empleado') !!}
+                            <br>
+                            {!! Form::select('role_id', $role, $employee->role_id, ['class' => 'form-control', 'required']) !!}
                         </div>
 
                         {!! Form::submit('Editar',['class'=>'btn-primary btn']) !!}

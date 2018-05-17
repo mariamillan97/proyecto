@@ -8,6 +8,11 @@
                     <div class="panel-heading">Clientes</div>
 
                     <div class="panel-body">
+                        {!! Form::open(['route' => 'clients.create',
+                        'method' => 'get']) !!}
+                        {!! Form::submit('Crear cliente',
+                        ['class'=> 'btn btn-primary'])!!}
+                        {!! Form::close() !!}
 
 
                         <br><br>

@@ -7,6 +7,7 @@ use App\Role;
 use App\Employee;
 use App\Http\Controllers\Controller;
 //use Illuminate\Support\Facades\Hash;
+//use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -42,7 +43,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function showRegistrationForm()
+     public function showRegistrationForm()
     {
         $roles = Role::all()->pluck('name','id');
 
@@ -66,13 +67,13 @@ class RegisterController extends Controller
                 'name' => 'required|max:255',
                 'lastName1'=>'required|max:255',
                 'lastName2'=>'required|max:255',
-                'number'=>'numeric',
-                'DNI'=>'required|max:9',
-                'salary'=>'required|max:4000',
-                'user_id'=>'required|exits:users,id',
+                'number'=>'required',
+                'DNI'=>'required',
+                'salary'=>'required',
+               // 'user_id'=>'required|exits:users,id',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
-                'role_id'=> 'required|exits:roles,id'
+                'role_id'=> 'required|exists:roles,id'
             ]);
        /* }else{
             return Validator::make($data,[
@@ -97,10 +98,6 @@ class RegisterController extends Controller
     {
 
 
-     /*   $user->lastName1 = $data ['lastName1'];
-        $user->lastName2 = $data ['lastName2'];
-        $user->email = $data ['email'];
-        $user->number= $data ['number'];*/
         $user = new User;
         $user->name = $data['name'];
         $user->lastName1 = $data['lastName1'];
@@ -110,11 +107,11 @@ class RegisterController extends Controller
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
 
-        $employee = new Employee;
-
-        $employee->salary = $data['salary'];
-        $employee = DB::table('employees')->select('boss', 'pharmacist','adm')->get();
         $user->save();
+
+        $employee = new Employee;
+        $employee->salary = $data['salary'];
+        $employee->role_id=$data['role_id'];
 
         $employee->user()->associate($user);
         $employee->save();

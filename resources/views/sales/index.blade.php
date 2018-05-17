@@ -20,9 +20,10 @@
                                 <th>Pagado</th>
                                 <th>Cliente</th>
                                 <th>Empleado</th>
+                                <th>Cantidad del producto</th>
 
 
-                                <th colspan="3">Acciones</th>
+                                <th colspan="4">Acciones</th>
 
                             </tr>
 

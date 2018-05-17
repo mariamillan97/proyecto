@@ -49,7 +49,7 @@ class SaleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            //'paid'=>'required|false or true',
+            'paid'=>'required',
             'client_id'=>'required|exists:clients,id',
             'employee_id'=>'required|exists:employees,id'
 
@@ -85,6 +85,7 @@ class SaleController extends Controller
 
         $clients= Client::all()->pluck('full_name', 'id');
         $employees= Employee::all()->pluck('full_name', 'id');
+
         return view ('sales/edit',['sale'=>$sale,'client'=> $clients ,'employee'=> $employees]);
     }
 
@@ -98,7 +99,7 @@ class SaleController extends Controller
     public function update(Request $request, Sale $sale)
     {
         $this->validate($request, [
-           // 'paid'=>'required|false or true',
+         //   'paid'=>'required',
             'client_id'=>'required|exists:clients,id',
             'employee_id'=>'required|exists:employees,id'
 
@@ -130,7 +131,7 @@ class SaleController extends Controller
 
         ]);
         $sale = Sale::find($id);
-        $sale->products()->attach($request->product_id, ['quantity'=>$request->quantity,
+        $sale->productSale()->attach($request->product_id, ['quantity'=>$request->quantity,
             'sale_id'=>$sale->id]);
 
 
