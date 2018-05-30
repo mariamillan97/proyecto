@@ -124,7 +124,7 @@ class SaleController extends Controller
         return redirect()->route('sales.index');
     }
 
-    public function cantidadProducto($id, Request $request)
+ /*   public function cantidadProducto($id, Request $request)
     {
 
         $this->validate($request, [
@@ -140,21 +140,21 @@ class SaleController extends Controller
 
 
         return redirect()->route('sales.index', ['sale'=>$sale]);
-
-        /*$sale = Sale::find($id);
+///////////////
+        $sale = Sale::find($id);
         $sale->productSale()->attach($request->productSale_id, ['quantity'=>$request->quantity,
             'sale_id'=>$sale->id]);
         $sale->product()->attach($request->product_id, ['name'=>$request->name,
            'sale_id'=>$sale->id]);
 
-        return redirect()->route('sales.index', ['sale'=>$sale]);*/
-    }
+        return redirect()->route('sales.index', ['sale'=>$sale]);
+    }*/
 
 
 
 
 
-    public function borrarProducto($idProduct ,$idSale)
+    /*public function borrarProducto($idProduct ,$idSale)
     {
         $product = Product::find($idProduct);
         $sale = Sale::find($idSale);
@@ -163,7 +163,7 @@ class SaleController extends Controller
 
 
         return redirect()->route('sales.index', ['sale'=>$sale]);
-    }
+    }*/
 
 
 

@@ -46,7 +46,7 @@
 
 
                                     <td>
-                                        {!! Form::open(['route' => ['sales.show',$sale->id], 'method' => 'get']) !!}
+                                        {!! Form::open(['route' => ['productSales.index',$sale->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Detalle productos', ['class'=> 'btn btn-info'])!!}
                                         {!! Form::close() !!}
                                     </td>

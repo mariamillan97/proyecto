@@ -35,7 +35,7 @@ Route::resource('sales','SaleController');
 
 Route::resource('products','ProductController');
 
-//Route::resource('productSales','ProductSaleController');
+Route::resource('productSales','ProductSaleController');
 
 
 

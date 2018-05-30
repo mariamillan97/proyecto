@@ -108,7 +108,14 @@
 
                                     </a>
 
-                                    <form id="provider-form" action="{{ route('providers.index') }}" method="GET" style="display: none;">
+                                    <a class="dropdown-item" href="{{ route('productSales.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('productSale-form').submit();">
+                                        Detalles
+
+                                    </a>
+
+                                    <form id="productSale-form" action="{{ route('productSales.index') }}" method="GET" style="display: none;">
                                         @csrf
                                     </form>
 
