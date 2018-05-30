@@ -14,6 +14,14 @@
                         ['clients.update',$client->id],
                          'method'=>'PUT']) !!}
 
+                        <div class="form-group">
+                            {!!Form::label('DNI', 'DNI del cliente') !!}
+                            {!! Form::text('DNI',$client->user->DNI,
+                            ['class'=>'form-control', 'required', 'autofocus']) !!}
+
+
+                        </div>
+
 
                         <div class="form-group">
                             {!!Form::label('name', 'Nombre del cliente') !!}

@@ -63,6 +63,17 @@
 
                         </div>
 
+                        <div class="form-group">
+                            {!! Form::label('prescription', 'Necesidad de receta del producto') !!}
+                            <br>
+
+                            <input name = "prescription" type = "radio" value = "0" > No <br>
+
+                            <input name = "prescription" type = "radio" value = "1" > Sí
+
+
+                        </div>
+
 
                         {!! Form:: submit ('Guardar',['class'=>'btn-primary btn']) !!}
 

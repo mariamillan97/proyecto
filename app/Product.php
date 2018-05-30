@@ -10,16 +10,16 @@ class Product extends Model
 {
      protected $fillable = [
          'name','stock','pricePurchase','priceSale',
-         'dateOfExpiry', 'prescription', 'quantity',
-         'sale_id', 'provider_id'
+         'dateOfExpiry', 'prescription',
+         'provider_id'
      ];
 
-   public function productSale()
+     public function productSale()
      {
-         return $this->hasMany('App\productSale'); //  ->withPivot('quantity');
+         return $this->hasMany('App\productSale');
      }
 
-    /*public function sale()
+ /*   public function sales()
     {
         return $this->belongsToMany('App\Sale')->withPivot('quantity');
     }*/

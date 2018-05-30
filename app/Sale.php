@@ -11,13 +11,12 @@ class Sale extends Model
 
     ];
 
-     public function productSale()
+    public function productSale()
     {
-        return $this->hasMany('App\ProductSale'); //->withPivot('quantity');
-
+        return $this->hasMany('App\ProductSale');
     }
 
-   /* public function product()
+   /* public function products()
     {
         return $this->belongsToMany('App\Product')->withPivot('quantity');
     }*/

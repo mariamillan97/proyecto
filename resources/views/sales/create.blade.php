@@ -14,9 +14,10 @@
                         <div class="form-group">
                             {!! Form::label('paid', '¿Ha sio pagada la venta?') !!}
                             <br>
-                            {{Form :: radio ('paid', 'SI')}}
-                            <br>
-                            {{Form :: radio ('paid', 'NO')}}
+
+                            <input name = "paid" type = "radio" value = "0" > No <br>
+
+                            <input name = "paid" type = "radio" value = "1" > Sí
 
 
                         </div>

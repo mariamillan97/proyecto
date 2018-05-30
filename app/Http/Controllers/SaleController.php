@@ -69,6 +69,7 @@ class SaleController extends Controller
     public function show(Sale $sale)
     {
         $products = Product::all()->pluck('name', 'id');
+       // $productSales = $sale->productSale();
         return view('sales/productSale',['sale'=>$sale, 'products'=>$products]);
     }
 
@@ -127,16 +128,31 @@ class SaleController extends Controller
     {
 
         $this->validate($request, [
-            'quantity'=>'required|max:25'
+            'quantity'=>'required',
+            'product_id'=>'required|exists:products,id'
 
         ]);
+
+
         $sale = Sale::find($id);
-        $sale->productSale()->attach($request->product_id, ['quantity'=>$request->quantity,
+        $sale->products()->attach($request->product_id, ['quantity'=>$request->quantity,
+             'sale_id'=>$sale->id]);
+
+
+        return redirect()->route('sales.index', ['sale'=>$sale]);
+
+        /*$sale = Sale::find($id);
+        $sale->productSale()->attach($request->productSale_id, ['quantity'=>$request->quantity,
             'sale_id'=>$sale->id]);
+        $sale->product()->attach($request->product_id, ['name'=>$request->name,
+           'sale_id'=>$sale->id]);
 
-
-        return redirect()->route('sales.show', ['sale'=>$sale]);
+        return redirect()->route('sales.index', ['sale'=>$sale]);*/
     }
+
+
+
+
 
     public function borrarProducto($idProduct ,$idSale)
     {
@@ -146,7 +162,7 @@ class SaleController extends Controller
 
 
 
-        return redirect()->route('sales.show', ['sale'=>$sale]);
+        return redirect()->route('sales.index', ['sale'=>$sale]);
     }
 
 

@@ -16,9 +16,9 @@
                             {!! Form::label('paid', '¿Ha sio pagada la venta?') !!}
                             <br>
 
-                            <input name = "paid" type = "radio" value = "0" > <br>
+                            <input name = "paid" type = "radio" value = "0" > No <br>
 
-                            <input name = "paid" type = "radio" value = "1" >
+                            <input name = "paid" type = "radio" value = "1" > Sí
 
                         </div>
 

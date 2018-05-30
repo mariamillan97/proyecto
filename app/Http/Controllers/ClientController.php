@@ -44,10 +44,21 @@ class ClientController extends Controller
         $this->validate($request, [
             'debt'=>'required',
             'socSecNum'=>'required|max:12',
-            'purchasedProducts'=>'required',
-            'user_id'=>'required|exists:users,id'
-        ]);
+            'purchasedProducts'=>'required']);
+
+        $user = new User;
+        $user->name = $request['name'];
+        $user->lastName1 = $request['lastName1'];
+        $user->lastName2 = $request['lastName2'];
+        $user->DNI = $request['DNI'];
+        $user->number= $request ['number'];
+        $user->email = $request['email'];
+        $user->password = bcrypt($request['DNI']);
+
+        $user->save();
+
         $client=new Client($request->all());
+        $client->user()->associate($user);
         $client->save();
         flash('Cliente creado correctamente');
         return redirect()->route('clients.index');
@@ -61,7 +72,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('clients/show',['client'=>$client]);
+        return view('clients/index',['client'=>$client]);
     }
 
     /**
@@ -89,18 +100,27 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
         $this->validate($request, [
-           /* 'DNI' =>'required|max:9',
-            'name'=>'required|max:255',
-            'lastName1'=>'required|max:255',
-            'lastName2'=>'required|max:255',
-            'number'=>'required',
-            'email'=>'email',*/
+
             'debt'=>'required',
             'socSecNum'=>'required|max:12',
             'purchasedProducts'=>'required',
-            //'user_id'=>'required|exists:users,id'
+
         ]);
+
+
+        $user= User::find($client->user_id);
+        $user->name = $request['name'];
+        $user->lastName1 = $request['lastName1'];
+        $user->lastName2 = $request['lastName2'];
+        $user->DNI = $request['DNI'];
+        $user->number= $request ['number'];
+        $user->email = $request['email'];
+        $user->password = bcrypt($request['DNI']);
+
+        $user->save();
+
         $client->fill($request->all());
+        $client->user()->associate($user);
         $client->save();
         flash('Client modificado correctamente');
         return redirect()->route('clients.index');

@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
 
-                        {!! Form:: open(['route'=> 'clients.store']) !!}
+                        {!! Form:: open(['route'=> 'clients.index']) !!}
 
                         <div class="form-group">
 

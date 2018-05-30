@@ -43,16 +43,78 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Cerrar Sesión
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    <a class="dropdown-item" href="{{ route('sales.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('sale-form').submit();">
+                                        Ventas
+
+                                    </a>
+
+                                    <form id="sale-form" action="{{ route('sales.index') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+
+
+                                    <a class="dropdown-item" href="{{ route('products.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('product-form').submit();">
+                                        Productos
+
+                                    </a>
+
+                                    <form id="product-form" action="{{ route('products.index') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                    <a class="dropdown-item" href="{{ route('clients.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('client-form').submit();">
+                                        Clientes
+
+                                    </a>
+
+                                    <form id="client-form" action="{{ route('clients.index') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+
+
+                                    <a class="dropdown-item" href="{{ route('employees.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('employee-form').submit();">
+                                        Empleados
+
+                                    </a>
+
+                                    <form id="employee-form" action="{{ route('employees.index') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+
+
+                                    <a class="dropdown-item" href="{{ route('providers.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('provider-form').submit();">
+                                        Proveedores
+
+                                    </a>
+
+                                    <form id="provider-form" action="{{ route('providers.index') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+
+
                                 </div>
+
                             </li>
                         @endguest
                     </ul>

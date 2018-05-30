@@ -11,6 +11,7 @@ $factory->define(App\Product::class, function (Faker $faker) use ($factory){
         'dateOfExpiry'=>$faker->dateTimeBetween($startDate = '-1years', $endDate='+2years', $timezone=null), /*que el max no sea now*/
         'stock'=>$faker->numberBetween($min=0,$max=50),
         'prescription'=>$faker->boolean,
+     //   'quantity'=> $factory->numberBetween($min=0, $max=0),
         /*'provider_id' => $factory->create(App\Provider::class)->id,*/
 
     ];

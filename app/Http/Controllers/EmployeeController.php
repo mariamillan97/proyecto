@@ -82,7 +82,7 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         ////AQUI NO SE SI ES ROL O ROLES
-        $role = Role::all();
+        $role = Role::all()->pluck('name');
         return view('employees/edit',['employee'=>$employee, 'role'=>$role]);
     }
 

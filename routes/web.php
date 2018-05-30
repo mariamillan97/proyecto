@@ -27,21 +27,26 @@ Route::resource('users','UserController');
 
 Route::resource('employees','EmployeeController');
 
+Route::resource('roles','RoleController');
+
 Route::resource('clients','ClientController');
 
 Route::resource('sales','SaleController');
 
 Route::resource('products','ProductController');
 
-Route::resource('productSales','ProductSaleController');
+//Route::resource('productSales','ProductSaleController');
 
-/*
-Route::post('/cantidadProducto/{id}', 'SaleController@cantidadProducto')->name('sales.cantidadProducto');
 
-Route::post('/borrarProducto/{idSale}/{idProduct}', 'SaleController@borrarProducto')->name('sales.borrarProducto');
+
+Route::post('/cantidadProducto/{id}',
+    'SaleController@cantidadProducto')->name('sales.cantidadProducto');
+
+
+Route::post('/borrarProducto/{idSale}/{idProduct}',
+    'SaleController@borrarProducto')->name('sales.borrarProducto');
 
 
 Route::get('sales/productSale', function(){
     return view('sales/productSale');
 })->name('productSale');
-*/

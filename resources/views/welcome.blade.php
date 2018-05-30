@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>FARMACIA</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -14,7 +14,7 @@
         <style>
             html, body {
                /background-color: #fff;
-                color: rgba(0, 226, 197, 0.7);
+                color: rgba(97, 255, 0, 0.7);
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -57,9 +57,9 @@
 
             .title {
                 font-size: 84px;
-                /*font-size: 120px;*/
-                color: rgba(174, 0, 0, 0.8);
-                font-family: Red;
+                font-size: 120px;
+                color: rgba(24, 211, 4, 0.83);
+                font-family: "Bauhaus 93";
                 text-align: left;
 
 
@@ -74,7 +74,7 @@
                 text-decoration: none;
                 text-transform: uppercase;*/
 
-                color: #636b6f;
+                color: #18d304;
                 padding: 0 25px;
                 font-size: 18px;
                 font-weight: 600;
@@ -86,7 +86,7 @@
             }
 
             .contenido {
-                color : #2e3436;
+                color : #0004ec;
                 font-size: 15px;
                 font-weight: 600;
                 margin-top: -15%;
@@ -105,7 +105,7 @@
         </style>
     </head>
 
-    <img src = "http://www.vectorlogo.es/wp-content/uploads/2014/12/logo-vector-universidad-sevilla.jpg"
+    <img src = "https://previews.123rf.com/images/franckito/franckito0709/franckito070900159/1650003-s%C3%ADmbolo-de-la-farmacia-cruz-verde-conectado-a-un-rat%C3%B3n-de-la-computadora-que-sugiere-una-farmacia-en-l%C3%ADnea-.jpg"
          style = "width:180px;height: 100px">
 
     <body>
@@ -115,23 +115,23 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}">Iniciar Sesión</a>
+                        <a href="{{ route('register') }}">Registrar</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    FARMACIA
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a>Salud y Vida</a>
+                    <br>
+                    <br>
+                    <a>María Millán Gamero</a>
+
                 </div>
             </div>
         </div>
