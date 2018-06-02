@@ -32,7 +32,7 @@
                     @endif
 
                         {!! Form::open(['route' => ['sales.index'], 'method' => 'get']) !!}
-                        {!! Form::submit('Ver ventas', ['class'=> 'btn btn-warning'])!!}
+                        {!! Form::submit('Ver ventas', ['class'=> 'btn btn-success'])!!}
                         {!! Form::close() !!}
 
                 </div>

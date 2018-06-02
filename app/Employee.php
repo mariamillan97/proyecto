@@ -24,5 +24,18 @@ class Employee extends Model
         return $this->belongsTo('App\Role');
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->user->name .' '.$this->user->lastName1;
+    }
+
+    public function scopeName($query, $name){
+
+        if(trim($name)!= ""){
+            $query->where('salary', $name);
+        }
+
+    }
+
 
 }

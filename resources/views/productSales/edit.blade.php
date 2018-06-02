@@ -5,12 +5,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">~Editar línea Venta</div>
+                    <div class="panel-heading">Editar línea Venta</div>
 
                     <div class="panel-body">
                         @include('flash::message')
 
-                        {!! Form::model($productSale, [ 'route' => ['productSales.update',$productSale->id], 'method'=>'PUT']) !!}
+                        {!! Form::model($productSale, [ 'route' =>
+                      ['productSales.update',$productSale->id], 'method'=>'PUT']) !!}
+
 
                         <div class="form-group">
                             {!! Form::label('quantity', 'Cantidad producto') !!}
@@ -30,6 +32,8 @@
                             <br>
                             {!! Form::select('sale_id', $sales, $productSale->sale_id, ['class' => 'form-control']) !!}
                         </div>
+
+
 
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

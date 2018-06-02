@@ -8,6 +8,7 @@
                     <div class="panel-heading">Editar trabajador</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
 
 
                         {!! Form::model($employee, [ 'route' =>

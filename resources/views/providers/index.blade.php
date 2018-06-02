@@ -8,9 +8,22 @@
                     <div class="panel-heading">Proveedores</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
+
+
+                        <form class="navbar-form navbar-left pull-right" role="search">
+                            {{Form::open(['route'=>'providers.index', 'method'=>'GET', 'class'=> 'navbar-form navbar-left pull-right'])}}
+
+                            <div class="form-group">
+                                {{Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Nombre proveedor'])}}
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Buscar</button>
+                        </form>
+                        <br><br>
 
                         {!! Form::open(['route' => 'providers.create', 'method' => 'get']) !!}
-                        {!!   Form::submit('Crear proveedor', ['class'=> 'btn btn-primary'])!!}
+                        {!!   Form::submit('Crear proveedor', ['class'=> 'btn btn-success'])!!}
                         {!! Form::close() !!}
 
                         <br><br>
@@ -35,12 +48,12 @@
 
                                     <td>
                                         {!! Form::open(['route' => ['providers.edit',$provider->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
+                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}
                                         {!! Form::close() !!}
                                     </td>
                                     <td>
                                         {!! Form::open(['route' => ['providers.destroy',$provider->id], 'method' => 'delete']) !!}
-                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-success' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
                                         {!! Form::close() !!}
 
                                     </td>

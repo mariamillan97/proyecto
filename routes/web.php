@@ -37,14 +37,13 @@ Route::resource('products','ProductController');
 
 Route::resource('productSales','ProductSaleController');
 
+Route::resource('productProviders','ProductProviderController');
 
 
-Route::post('/cantidadProducto/{id}',
-    'SaleController@cantidadProducto')->name('sales.cantidadProducto');
+/*Route::post('/detalles/{id}',
+    'SaleController@detalles')->name('sales.detalles');*/
 
 
-Route::post('/borrarProducto/{idSale}/{idProduct}',
-    'SaleController@borrarProducto')->name('sales.borrarProducto');
 
 
 Route::get('sales/productSale', function(){

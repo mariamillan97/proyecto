@@ -23,4 +23,14 @@ class Client extends Model
     {
         return $this->user->name .' '.$this->user->lastName1;
     }
+
+    public function scopeName($query, $name){
+
+        if(trim($name)!= ""){
+            $query->where('socSecNum', $name);
+        }
+
+    }
+
+
 }

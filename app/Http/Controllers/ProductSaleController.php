@@ -13,10 +13,23 @@ class ProductSaleController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     *
      */
-    public function index()
+
+
+
+    public function index(Request $request)
     {
-        $productSales = ProductSale::all();
+    // $productSales = ProductSale::all();
+        $productSales= ProductSale::name($request->get('name'))->orderBy('id', 'DESC')->paginate();
+      if($request->ajax()){
+          return response()->json([
+              'data'=> $productSales
+          ]);
+      }
+
+
         return view('productSales/index', ['productSales'=>$productSales]);
     }
 
@@ -28,11 +41,10 @@ class ProductSaleController extends Controller
     public function create()
     {
         $products = Product::all()->pluck('name','id');
+        $sales = Sale::all()->pluck('id','id');
 
-        $sales = Sale::all()->pluck('id');
 
-
-        return view('productSales/create',['products'=>$products, 'sales'=>$sales]);
+        return view('productSales/create',['products'=>$products, 'sale'=>$sales]);
     }
 
     /**
@@ -63,9 +75,11 @@ class ProductSaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ProductSale $productSale)
     {
-
+      //  $productSales = Product::all()->pluck('name', 'id');
+        // $productSales = $sale->productSale();
+   //     return view('sales/productSale',['sale'=>$sale, 'products'=>$products]);
 
     }
 
@@ -75,13 +89,13 @@ class ProductSaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ProductSale $productSale)
     {
-        $productSale = ProductSale::find($id);
+
 
         $products = Product::all()->pluck('name','id');
 
-        $sales = Sale::all()->pluck('id');
+        $sales = Sale::all()->pluck('id','id');
 
 
         return view('productSales/edit',['productSale'=> $productSale,
@@ -95,7 +109,7 @@ class ProductSaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ProductSale $productSale)
     {
         $this->validate($request, [
             'product_id' => 'required|exists:products,id',
@@ -103,7 +117,7 @@ class ProductSaleController extends Controller
             'quantity' => 'required',
 
         ]);
-        $productSale = ProductSale::find($id);
+
         $productSale->fill($request->all());
 
         $productSale->save();
@@ -111,6 +125,8 @@ class ProductSaleController extends Controller
         flash('Línea Venta modificada correctamente');
 
         return redirect()->route('productSales.index');
+
+
     }
 
     /**
@@ -119,9 +135,9 @@ class ProductSaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($productSale)
     {
-        $productSale = ProductSale::find($id);
+        $productSale = ProductSale::find($productSale);
         $productSale->delete();
         flash('Línea Venta borrada correctamente');
 

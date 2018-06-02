@@ -8,6 +8,7 @@
                     <div class="panel-heading">Crear venta</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
 
                         {!! Form::open(['route' => 'sales.store']) !!}
 

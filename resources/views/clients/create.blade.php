@@ -9,6 +9,8 @@
 
                     <div class="panel-body">
 
+                        @include('flash::message')
+
                         {!! Form:: open(['route'=> 'clients.index']) !!}
 
                         <div class="form-group">

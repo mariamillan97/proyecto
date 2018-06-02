@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductSale;
 use App\Sale;
 use App\Employee;
 use App\Client;
@@ -18,9 +19,10 @@ class SaleController extends Controller
 
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $sales= Sale::all();
+      //$sales= Sale::all();
+         $sales= Sale::name($request->get('name'))->orderBy('id')->paginate();
         return view('sales/index',['sales'=>$sales]);
     }
 
@@ -122,6 +124,28 @@ class SaleController extends Controller
         $sale->delete();
         flash('Venta borrada correctamente');
         return redirect()->route('sales.index');
+    }
+
+
+    public function detalles($id , Request $request){
+
+        $this->validate($request, [
+            'product_id' =>'required|exists:products,id',
+            'quantity'=>'required',
+            //'paid'=>'required',
+            'client_id'=>'required|exists:clients,id',
+            'employee_id'=>'required|exists:employees,id'
+
+
+        ]);
+
+        $productSale = ProductSale::all();
+        $sale =Sale::find($productSale);
+        $sale ->productSale()->quantity;
+
+        return redirect()->route('sales.index', ['sale'=>$sale]);
+
+
     }
 
  /*   public function cantidadProducto($id, Request $request)

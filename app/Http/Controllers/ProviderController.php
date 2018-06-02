@@ -14,10 +14,11 @@ class ProviderController extends Controller
 
 
 
-    public function index()
+    public function index(Request $request)
     {
 
-        $providers = Provider::all();
+      //  $providers = Provider::all();
+        $providers= Provider::name($request->get('name'))->orderBy('id', 'DESC')->paginate();
         return view('providers/index',['providers'=>$providers]);
     }
 
@@ -109,4 +110,6 @@ class ProviderController extends Controller
         return redirect()->route('providers.index');
 
     }
+
+
 }

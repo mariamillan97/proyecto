@@ -10,8 +10,21 @@ class Provider extends Model
         'name', 'email','address','number', 'product_id'
     ];
 
-    public function product()
+    /*public function products()
     {
-        return $this->belongsTo('App\Product');
+        return $this->belongsToMany('App\Product')->withPivot('name');
+    }*/
+
+    public function productProvider()
+    {
+        return $this->hasMany('App\ProductProvider');
+    }
+
+    public function scopeName($query, $name){
+
+        if(trim($name)!= ""){
+            $query->where('name', $name);
+        }
+
     }
 }

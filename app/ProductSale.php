@@ -11,10 +11,20 @@ class ProductSale extends Model
     ];
     public function sale()
     {
-        return $this->belongsTo('App\Sale');
+        return $this->belongsTo('App\Sale', 'sale_id', 'id');
     }
     public function product()
     {
         return $this->belongsTo('App\Product');
     }
+
+    public function scopeName($query, $name){
+
+        if(trim($name)!= ""){
+            $query->where('sale_id', $name);
+        }
+
+    }
+
+
 }

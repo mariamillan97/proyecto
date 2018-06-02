@@ -44,6 +44,7 @@
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -53,6 +54,8 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
 
                                     <a class="dropdown-item" href="{{ route('sales.index') }}"
                                        onclick="event.preventDefault();
@@ -108,6 +111,11 @@
 
                                     </a>
 
+                                    <form id="provider-form" action="{{ route('providers.index') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+
+
                                     <a class="dropdown-item" href="{{ route('productSales.index') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('productSale-form').submit();">
@@ -116,6 +124,17 @@
                                     </a>
 
                                     <form id="productSale-form" action="{{ route('productSales.index') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                    <a class="dropdown-item" href="{{ route('productProviders.index') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('productProvider-form').submit();">
+                                        Productos-Proveedores
+
+                                    </a>
+
+                                    <form id="productProvider-form" action="{{ route('productProviders.index') }}" method="GET" style="display: none;">
                                         @csrf
                                     </form>
 

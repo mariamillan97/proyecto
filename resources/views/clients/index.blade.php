@@ -27,11 +27,25 @@
 
 
                     <div class="panel-body">
+                        @include('flash::message')
+
+                        <form class="navbar-form navbar-left pull-right" role="search">
+                            {{Form::open(['route'=>'clients.index', 'method'=>'GET', 'class'=> 'navbar-form navbar-left pull-right'])}}
+
+                            <div class="form-group">
+                                {{Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Número SecSoc'])}}
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Buscar</button>
+                        </form>
+                        <br><br>
+
                         {!! Form::open(['route' => 'clients.create',
                         'method' => 'get']) !!}
                         {!! Form::submit('Crear cliente',
-                        ['class'=> 'btn btn-primary'])!!}
+                        ['class'=> 'btn btn-success'])!!}
                         {!! Form::close() !!}
+
 
 
                         <br><br>
@@ -47,7 +61,7 @@
                                 <th>NumSocSec</th>
                                 <th>Productos comprados</th>
 
-
+                                <th colspan="3">Acciones</th>
 
                             </tr>
 
@@ -72,7 +86,7 @@
                                         ['clients.edit',$client->id],
                                          'method' => 'get']) !!}
                                         {!!   Form::submit('Editar',
-                                        ['class'=> 'btn btn-warning'])!!}
+                                        ['class'=> 'btn btn-success'])!!}
                                         {!! Form::close() !!}
                                     </td>
                                     <td>
@@ -81,7 +95,7 @@
                                          'method' => 'delete']) !!}
 
                                         {!!   Form::submit('Borrar',
-                                         ['class'=> 'btn btn-danger' ,'onclick' =>
+                                         ['class'=> 'btn btn-success' ,'onclick' =>
                                          'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
                                         {!! Form::close() !!}
 

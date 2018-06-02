@@ -20,10 +20,13 @@ class EmployeeController extends Controller
         $this->middleware('auth');
     }*/
 
-    public function index()
+    public function index(Request $request)
     {
 
-        $employees=Employee::all();
+       // $employees=Employee::all();
+
+        $employees= Employee::name($request->get('name'))->orderBy('id', 'DESC')->paginate();
+
         return view('employees/index',['employees'=>$employees]);
     }
 
@@ -34,7 +37,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $roles=Role::all()->pluck('name');
+        $roles=Role::all()->pluck('name','id');
         return view ('employees/create',['roles'=>$roles]);
     }
 
@@ -82,7 +85,7 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         ////AQUI NO SE SI ES ROL O ROLES
-        $role = Role::all()->pluck('name');
+        $role = Role::all()->pluck('name','id');
         return view('employees/edit',['employee'=>$employee, 'role'=>$role]);
     }
 

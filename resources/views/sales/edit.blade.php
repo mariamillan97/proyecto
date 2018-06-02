@@ -8,6 +8,7 @@
                     <div class="panel-heading">Editar venta</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
 
                         {!! Form::model($sale, [ 'route' =>
                         ['sales.update',$sale->id], 'method'=>'PUT']) !!}

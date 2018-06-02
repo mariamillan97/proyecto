@@ -8,6 +8,7 @@
                     <div class="panel-heading">Crear producto</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
 
 
                         {!! Form:: open(['route'=> 'products.store']) !!}
@@ -55,13 +56,6 @@
                         </div>
 
 
-                        <div class="form-group">
-
-                            {!! Form:: label ('prescription', 'Necesidad de receta del producto') !!}
-                            {!! Form::text('prescription',null,
-                            ['class'=>'form-control', 'required']) !!}
-
-                        </div>
 
                         <div class="form-group">
                             {!! Form::label('prescription', 'Necesidad de receta del producto') !!}

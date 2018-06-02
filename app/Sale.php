@@ -11,7 +11,7 @@ class Sale extends Model
 
     ];
 
-    public function productSale()
+    public function productSales()
     {
         return $this->hasMany('App\ProductSale');
     }
@@ -30,4 +30,14 @@ class Sale extends Model
     {
         return $this->belongsTo('App\Employee');
     }
+
+    public function scopeName($query, $name){
+
+        if(trim($name)!= ""){
+            $query->where('id', $name);
+        }
+
+    }
+
+
 }

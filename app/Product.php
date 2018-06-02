@@ -14,9 +14,9 @@ class Product extends Model
          'provider_id'
      ];
 
-     public function productSale()
+     public function productSales()
      {
-         return $this->hasMany('App\productSale');
+         return $this->hasMany('App\ProductSale');
      }
 
  /*   public function sales()
@@ -24,9 +24,24 @@ class Product extends Model
         return $this->belongsToMany('App\Sale')->withPivot('quantity');
     }*/
 
-    public function provider()
+   /* public function providers()
     {
-        return $this->belongsToMany('App\Provider');
+        return $this->belongsToMany('App\Provider')->withPivot('name');
+
+    }*/
+
+    public function productProvider()
+    {
+        return $this->hasMany('App\ProductProvider');
+    }
+
+
+
+    public function scopeName($query, $name){
+
+        if(trim($name)!= ""){
+            $query->where('name', $name);
+        }
 
     }
 

@@ -8,9 +8,22 @@
                     <div class="panel-heading">Productos</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
+
+
+                        <form class="navbar-form navbar-left pull-right" role="search">
+                            {{Form::open(['route'=>'products.index', 'method'=>'GET', 'class'=> 'navbar-form navbar-left pull-right'])}}
+
+                            <div class="form-group">
+                                {{Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Nombre producto'])}}
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Buscar</button>
+                        </form>
+                        <br><br>
 
                         {!! Form:: open (['route'=>'products.create', 'method'=> 'get']) !!}
-                        {!! Form :: submit ('Crear producto', ['class'=>'btn btn-primary']) !!}
+                        {!! Form :: submit ('Crear producto', ['class'=>'btn btn-success']) !!}
                         {!! Form :: close() !!}
 
                         <br><br>
@@ -22,34 +35,44 @@
                                    <th>Fecha de caducidad</th>
                                    <th>Stock</th>
                                    <th>Receta</th>
-                                   <th colspan="2">Acciones</th>
 
-                               </tr>
+                                   <th colspan="3">Acciones</th>
 
-                        @foreach ($products as $product)
+                             </tr>
 
-                            <tr>
+                      @foreach ($products as $product)
 
-                                <td>{{ $product->name}}</td>
-                                <td>{{ $product->pricePurchase }}</td>
-                                <td>{{ $product->priceSale}}</td>
-                                <td>{{ $product->dateOfExpiry }}</td>
-                                <td>{{ $product->stock}}</td>
-                                <td>{{ $product->prescription }}</td>
+                          <tr>
+
+                              <td>{{ $product->name}}</td>
+                              <td>{{ $product->pricePurchase }}</td>
+                              <td>{{ $product->priceSale}}</td>
+                              <td>{{ $product->dateOfExpiry }}</td>
+                              <td>{{ $product->stock}}</td>
+                              <td>{{ $product->prescription }}</td>
+
+                              <td>
+                                  {!! Form::open(['route' => ['productProviders.index',$product->id], 'method' => 'get']) !!}
+                                  {!!   Form::submit('Proveedores', ['class'=> 'btn btn-success'])!!}
+                                  {!! Form::close() !!}
+                              </td>
+
 
                                 <td>
                                     {!! Form::open(['route'=>
                                     ['products.edit', $product->id],'method'=>'get']) !!}
-                                    {!! Form::submit('Editar',['class'=>'btn btn-warning']) !!}
+                                    {!! Form::submit('Editar',['class'=>'btn btn-success']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 <td>
                                     {!! Form::open(['route' =>
                                      ['products.destroy',$product->id], 'method' => 'delete']) !!}
                                     {!! Form::submit('Borrar',
-                                    ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                    ['class'=> 'btn btn-success' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
                                     {!! Form::close() !!}
                                 </td>
+
+
 
                             </tr>
 
