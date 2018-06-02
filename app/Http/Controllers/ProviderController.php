@@ -18,7 +18,7 @@ class ProviderController extends Controller
     {
 
       //  $providers = Provider::all();
-        $providers= Provider::name($request->get('name'))->orderBy('id', 'DESC')->paginate();
+        $providers= Provider::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);
         return view('providers/index',['providers'=>$providers]);
     }
 

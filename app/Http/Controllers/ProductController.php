@@ -25,7 +25,7 @@ class ProductController extends Controller
 
        // $products= Product::all();
 
-        $products= Product::name($request->get('name'))->orderBy('id', 'DESC')->paginate();
+        $products= Product::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);
         return view('products/index',['products'=>$products]);
     }
 

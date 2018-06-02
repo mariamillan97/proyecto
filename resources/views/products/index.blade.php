@@ -27,6 +27,15 @@
                         {!! Form :: close() !!}
 
                         <br><br>
+
+                        <td>
+                            {!! Form::open(['route' => 'productProviders.index', 'method' => 'get']) !!}
+                            {!!   Form::submit('Proveedores', ['class'=> 'btn btn-success'])!!}
+                            {!! Form::close() !!}
+                        </td>
+
+
+                        <br><br>
                         <table class="table table-striped table-bordered">
                                <tr>
                                    <th>Nombre</th>
@@ -36,7 +45,7 @@
                                    <th>Stock</th>
                                    <th>Receta</th>
 
-                                   <th colspan="3">Acciones</th>
+                                   <th colspan="2">Acciones</th>
 
                              </tr>
 
@@ -51,11 +60,6 @@
                               <td>{{ $product->stock}}</td>
                               <td>{{ $product->prescription }}</td>
 
-                              <td>
-                                  {!! Form::open(['route' => ['productProviders.index',$product->id], 'method' => 'get']) !!}
-                                  {!!   Form::submit('Proveedores', ['class'=> 'btn btn-success'])!!}
-                                  {!! Form::close() !!}
-                              </td>
 
 
                                 <td>

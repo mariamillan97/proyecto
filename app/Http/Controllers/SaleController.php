@@ -22,7 +22,7 @@ class SaleController extends Controller
     public function index(Request $request)
     {
       //$sales= Sale::all();
-         $sales= Sale::name($request->get('name'))->orderBy('id')->paginate();
+         $sales= Sale::name($request->get('name'))->orderBy('id')->paginate(500);
         return view('sales/index',['sales'=>$sales]);
     }
 

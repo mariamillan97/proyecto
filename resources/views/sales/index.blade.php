@@ -25,7 +25,7 @@
                             {{Form::open(['route'=>'sales.index', 'method'=>'GET', 'class'=> 'navbar-form navbar-left pull-right'])}}
 
                             <div class="form-group">
-                                {{Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Id.Venta'])}}
+                                {{Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Id. Venta'])}}
                             </div>
 
                             <button type="submit" class="btn btn-success">Buscar</button>
@@ -40,15 +40,23 @@
                         {!! Form::close() !!}
 
                         <br><br>
+
+                        {!! Form::open(['route' => 'productSales.index', 'method' => 'get']) !!}
+                        {!! Form::submit('Detalles', ['class'=> 'btn btn-success'])!!}
+                        {!! Form::close() !!}
+
+
+                        <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Id. Venta</th>
                                 <th>Pagado</th>
                                 <th>Cliente</th>
                                 <th>Empleado</th>
+                                <th>Fecha</th>
 
 
-                                <th colspan="3">Acciones</th>
+                                <th colspan="2">Acciones</th>
 
                             </tr>
 
@@ -60,20 +68,12 @@
                                     <td>{{ $sale->paid }}</td>
                                     <td>{{ $sale->client->user->name}}</td>
                                     <td>{{ $sale->employee->user->name}}</td>
+                                    <td>{{ Carbon\Carbon::parse($sale->created_at)->format('d-m-Y') }}</td>
 
 
 
-                                   <td>
-                                        {!! Form::open(['route' => ['productSales.index',$sale->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Detalles', ['class'=> 'btn btn-success'])!!}
-                                        {!! Form::close() !!}
-                                    </td>
 
-                                 {{--}}   <td>
-                                        {!! Form::open(['route' => ['sales.detalles',$sale->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Detalles', ['class'=> 'btn btn-success'])!!}
-                                        {!! Form::close() !!}
-                                    </td> {{--}}
+
 
                                     <td>
                                         {!! Form::open(['route' => ['sales.edit',$sale->id], 'method' => 'get']) !!}

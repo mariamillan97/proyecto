@@ -25,7 +25,7 @@ class EmployeeController extends Controller
 
        // $employees=Employee::all();
 
-        $employees= Employee::name($request->get('name'))->orderBy('id', 'DESC')->paginate();
+        $employees= Employee::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);
 
         return view('employees/index',['employees'=>$employees]);
     }

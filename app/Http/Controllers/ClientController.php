@@ -18,7 +18,7 @@ class ClientController extends Controller
     public function index(Request $request)
     {
       //  $clients = Client::all();
-        $clients= Client::name($request->get('name'))->orderBy('id', 'DESC')->paginate();
+        $clients= Client::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);
         return view('clients/index',['clients'=>$clients]);
     }
 

@@ -44,6 +44,7 @@
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                                    <a href="{{ url('/home') }}"> Home </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
