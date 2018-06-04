@@ -14,7 +14,6 @@
         <style>
             html, body {
                 background-image: url("http://www.cofm.es/recursos/img/portal/2015/03/09/fondo-farmacia-mini-1181x500.jpg");
-            {{--}} background-image: url("https://plenarinho.leg.br/wp-content/uploads/2017/04/Profissoes_Farmaceutico.jpg");{{--}}
                 background-color: #a3ecae;
                 color: rgba(14, 175, 5, 0.73);
                 font-family: 'Raleway', sans-serif;
@@ -50,11 +49,10 @@
             }
 
             .title {
-                font-size: 84px;
-                font-size: 120px;
+                font-size: 50px;
+                font-size: 150px;
                 color: rgb(36, 124, 0);
                 font-family: "Microsoft PhagsPa";
-            {{--}}font-family: "Berlin Sans FB Demi";{{--}}
                 text-align: left;
 
 
@@ -65,7 +63,7 @@
 
                 color: rgba(0, 0, 0, 0.8);
                 padding: 0 25px;
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -117,6 +115,7 @@
                     FARMACIA
                 </div>
 
+                <br>
                 <div class="links">
                     <a>Salud y Vida</a>
                     <br>

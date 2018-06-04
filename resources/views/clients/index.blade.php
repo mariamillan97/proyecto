@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-<style>
-
-    .table {
-        color: #000000;
-        background-color: rgba(72, 226, 57, 0.42);
-    }
-
-</style>
 
 @section('content')
     <div class="container">

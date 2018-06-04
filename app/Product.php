@@ -19,17 +19,6 @@ class Product extends Model
          return $this->hasMany('App\ProductSale');
      }
 
- /*   public function sales()
-    {
-        return $this->belongsToMany('App\Sale')->withPivot('quantity');
-    }*/
-
-   /* public function providers()
-    {
-        return $this->belongsToMany('App\Provider')->withPivot('name');
-
-    }*/
-
     public function productProvider()
     {
         return $this->hasMany('App\ProductProvider');

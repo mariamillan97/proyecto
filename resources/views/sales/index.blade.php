@@ -61,11 +61,6 @@
                                     <td>{{ $sale->employee->full_name}}</td>
                                     <td>{{ Carbon\Carbon::parse($sale->created_at)->format('d-m-Y') }}</td>
 
-
-
-
-
-
                                     <td>
                                         {!! Form::open(['route' => ['sales.edit',$sale->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}

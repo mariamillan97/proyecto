@@ -10,10 +10,7 @@ class Provider extends Model
         'name', 'email','address','number', 'product_id'
     ];
 
-    /*public function products()
-    {
-        return $this->belongsToMany('App\Product')->withPivot('name');
-    }*/
+
 
     public function productProvider()
     {

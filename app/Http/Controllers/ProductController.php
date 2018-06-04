@@ -13,16 +13,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
 
     public function index(Request $request)
     {
-/*tengo que poner que si es un cliente le mando a la vidta indexClient*/
-/* if (userTipo == "Cliente")      return view('products/indexCliente',['products'=>$products]);
- else if (userTipo =="Empleado")         return view('products/index',['products'=>$products]);*/
-
-
        // $products= Product::all();
 
         $products= Product::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);

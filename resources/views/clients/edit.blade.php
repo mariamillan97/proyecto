@@ -86,7 +86,6 @@
                         </div>
 
 
-
                         {!! Form::submit('Editar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}
@@ -95,3 +94,4 @@
             </div>
         </div>
     </div>
+@endsection

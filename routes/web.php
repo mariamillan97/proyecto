@@ -40,12 +40,3 @@ Route::resource('productSales','ProductSaleController');
 Route::resource('productProviders','ProductProviderController');
 
 
-/*Route::post('/detalles/{id}',
-    'SaleController@detalles')->name('sales.detalles');*/
-
-
-
-
-Route::get('sales/productSale', function(){
-    return view('sales/productSale');
-})->name('productSale');

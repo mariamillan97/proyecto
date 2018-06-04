@@ -16,10 +16,6 @@ class Sale extends Model
         return $this->hasMany('App\ProductSale');
     }
 
-   /* public function products()
-    {
-        return $this->belongsToMany('App\Product')->withPivot('quantity');
-    }*/
 
     public function client()
     {

@@ -63,7 +63,6 @@
             </div>
         </div>
     </div>
-    {{--}}    {!! Form::open(['route' => ['tipoencuestas.destroy',':TIPOENCUESTA_ID'], 'method' => 'delete','id'=>'form-delete']) !!}
-        {!! Form::close() !!} {{--}}
+
 @endsection
 

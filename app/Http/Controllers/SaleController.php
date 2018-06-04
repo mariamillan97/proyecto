@@ -16,6 +16,10 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
 
@@ -83,8 +87,6 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-       /* $client= $sale ->client;
-        $employee= $sale ->employee;*/
 
         $clients= Client::all()->pluck('full_name', 'id');
         $employees= Employee::all()->pluck('full_name', 'id');
@@ -102,7 +104,7 @@ class SaleController extends Controller
     public function update(Request $request, Sale $sale)
     {
         $this->validate($request, [
-         //   'paid'=>'required',
+
             'client_id'=>'required|exists:clients,id',
             'employee_id'=>'required|exists:employees,id'
 
@@ -127,69 +129,4 @@ class SaleController extends Controller
     }
 
 
-    public function detalles($id , Request $request){
-
-        $this->validate($request, [
-            'product_id' =>'required|exists:products,id',
-            'quantity'=>'required',
-            //'paid'=>'required',
-            'client_id'=>'required|exists:clients,id',
-            'employee_id'=>'required|exists:employees,id'
-
-
-        ]);
-
-        $productSale = ProductSale::all();
-        $sale =Sale::find($productSale);
-        $sale ->productSale()->quantity;
-
-        return redirect()->route('sales.index', ['sale'=>$sale]);
-
-
-    }
-
- /*   public function cantidadProducto($id, Request $request)
-    {
-
-        $this->validate($request, [
-            'quantity'=>'required',
-            'product_id'=>'required|exists:products,id'
-
-        ]);
-
-
-        $sale = Sale::find($id);
-        $sale->products()->attach($request->product_id, ['quantity'=>$request->quantity,
-             'sale_id'=>$sale->id]);
-
-
-        return redirect()->route('sales.index', ['sale'=>$sale]);
-///////////////
-        $sale = Sale::find($id);
-        $sale->productSale()->attach($request->productSale_id, ['quantity'=>$request->quantity,
-            'sale_id'=>$sale->id]);
-        $sale->product()->attach($request->product_id, ['name'=>$request->name,
-           'sale_id'=>$sale->id]);
-
-        return redirect()->route('sales.index', ['sale'=>$sale]);
-    }*/
-
-
-
-
-
-    /*public function borrarProducto($idProduct ,$idSale)
-    {
-        $product = Product::find($idProduct);
-        $sale = Sale::find($idSale);
-        $sale->products()->detach($product->id);
-
-
-
-        return redirect()->route('sales.index', ['sale'=>$sale]);
-    }*/
-
-
-
-
-}
+ }

@@ -3,17 +3,20 @@
 <style>
     .card-header{
         color: #008000;
-        background-color: #14ec00;
+        background-color: rgb(216, 247, 187);
         font-family: 'serif';
-        font-size: 40px;
+        font-size: 50px;
         font-weight: 400;
+
+
     }
     .card-body{
         color: #8ce275;
-        background-color: rgba(163, 236, 174, 0.01);
+        background-color: rgb(216, 247, 187);
         font-family: 'verdana';
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 100;
+        margin: 10%
     }
 
 </style>
@@ -34,6 +37,9 @@
                         {!! Form::open(['route' => ['sales.index'], 'method' => 'get']) !!}
                         {!! Form::submit('Ver ventas', ['class'=> 'btn btn-success btn-lg'])!!}
                         {!! Form::close() !!}
+
+                        <img src = "http://bichibye.com/wp-content/uploads/2017/04/lupa.png"
+                             style = "width:100px;height: 100px;">
 
                 </div>
             </div>

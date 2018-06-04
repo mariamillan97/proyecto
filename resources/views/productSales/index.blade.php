@@ -27,9 +27,7 @@
                       {!!   Form::submit('Crear detalles', ['class'=> 'btn btn-success'])!!}
                         {!! Form::close() !!}
 
-                      {{--}}  {!! Form::open(['route' => 'tipoencuestas.destroyAll', 'method' => 'delete', 'class'=>'inline-important']) !!}
-                        {!!   Form::submit('Borrar todas', ['class'=> 'btn btn-danger','onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
-                        {!! Form::close() !!} {{--}}
+
 
                         <br><br>
                         <table id="tabla-productSale"  class="table table-striped table-bordered">
