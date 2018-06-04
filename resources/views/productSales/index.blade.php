@@ -46,7 +46,7 @@
                             </thead>
                             <tbody>
                             @foreach ($productSales as $productSale)
-                                <tr data-id="{{$productSale->id}}">
+                                <tr>
                                     <td>{{ $productSale->product->name }}</td>
                                     <td>{{ $productSale->quantity }}</td>
                                     <td>{{ $productSale->sale_id }}</td>

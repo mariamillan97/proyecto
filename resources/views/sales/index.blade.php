@@ -7,14 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Ventas</div>
 
-                   {{--}} <link rel="stylesheet"
-                          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                          crossorigin="anonymous">
-                    <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
 
-                    <link href=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"
-                          rel="stylesheet">{{--}}
 
                     <br>
                     <div class="panel-body">
@@ -54,8 +47,6 @@
                                 <th>Cliente</th>
                                 <th>Empleado</th>
                                 <th>Fecha</th>
-
-
                                 <th colspan="2">Acciones</th>
 
                             </tr>
@@ -66,8 +57,8 @@
                                 <tr>
                                     <td>{{ $sale->id }}</td>
                                     <td>{{ $sale->paid }}</td>
-                                    <td>{{ $sale->client->user->name}}</td>
-                                    <td>{{ $sale->employee->user->name}}</td>
+                                    <td>{{ $sale->client->full_name}}</td>
+                                    <td>{{ $sale->employee->full_name}}</td>
                                     <td>{{ Carbon\Carbon::parse($sale->created_at)->format('d-m-Y') }}</td>
 
 

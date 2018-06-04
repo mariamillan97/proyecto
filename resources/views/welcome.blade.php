@@ -13,20 +13,14 @@
         <!-- Styles -->
         <style>
             html, body {
-               /background-color: #fff;
-                color: rgba(97, 255, 0, 0.7);
+                background-image: url("http://www.cofm.es/recursos/img/portal/2015/03/09/fondo-farmacia-mini-1181x500.jpg");
+            {{--}} background-image: url("https://plenarinho.leg.br/wp-content/uploads/2017/04/Profissoes_Farmaceutico.jpg");{{--}}
+                background-color: #a3ecae;
+                color: rgba(14, 175, 5, 0.73);
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
-               /* background-image: url("http://plataforma.enclave4.es/Plateas-theme/images/backgrounds/fondo_login.png");
-                background-size: 100%;
-                background-color: rgba(15, 74, 155, 0);
-                color: #2034b0;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: auto;*/
 
 
             }
@@ -58,23 +52,18 @@
             .title {
                 font-size: 84px;
                 font-size: 120px;
-                color: rgba(24, 211, 4, 0.83);
-                font-family: "Bauhaus 93";
+                color: rgb(36, 124, 0);
+                font-family: "Microsoft PhagsPa";
+            {{--}}font-family: "Berlin Sans FB Demi";{{--}}
                 text-align: left;
 
 
             }
 
             .links > a {
-               /* color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;*/
 
-                color: #18d304;
+
+                color: rgba(0, 0, 0, 0.8);
                 padding: 0 25px;
                 font-size: 18px;
                 font-weight: 600;
@@ -86,7 +75,7 @@
             }
 
             .contenido {
-                color : #0004ec;
+                color : #000000;
                 font-size: 15px;
                 font-weight: 600;
                 margin-top: -15%;
@@ -104,9 +93,9 @@
 
         </style>
     </head>
+  {{--}}  <img src = "https://previews.123rf.com/images/franckito/franckito0709/franckito070900159/1650003-s%C3%ADmbolo-de-la-farmacia-cruz-verde-conectado-a-un-rat%C3%B3n-de-la-computadora-que-sugiere-una-farmacia-en-l%C3%ADnea-.jpg"
+         style = "width:380px;height: 200px"> {{--}}
 
-    <img src = "https://previews.123rf.com/images/franckito/franckito0709/franckito070900159/1650003-s%C3%ADmbolo-de-la-farmacia-cruz-verde-conectado-a-un-rat%C3%B3n-de-la-computadora-que-sugiere-una-farmacia-en-l%C3%ADnea-.jpg"
-         style = "width:180px;height: 100px">
 
     <body>
         <div class="flex-center position-ref full-height">
@@ -114,12 +103,14 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+
                     @else
                         <a href="{{ route('login') }}">Iniciar Sesión</a>
                         <a href="{{ route('register') }}">Registrar</a>
                     @endauth
                 </div>
             @endif
+
 
             <div class="content">
                 <div class="title m-b-md">
@@ -135,8 +126,11 @@
                     <br>
                     <a>María Millán Gamero</a>
 
+
+
                 </div>
             </div>
         </div>
     </body>
+
 </html>

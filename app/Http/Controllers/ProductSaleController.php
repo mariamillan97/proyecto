@@ -21,11 +21,8 @@ class ProductSaleController extends Controller
 
     public function index(Request $request)
     {
-        //$productSales = ProductSale::all();
-        $productSales= ProductSale::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);
-
-
-
+       // $productSales = ProductSale::all();
+      $productSales= ProductSale::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);
         return view('productSales/index', ['productSales'=>$productSales]);
     }
 

@@ -55,7 +55,7 @@ class ProductController extends Controller
             'dateOfExpiry'=>'required|after:today',
             'stock'=>'required|max:100',
             'prescription'=>'required',
-            'provider_id'=>'required|exists:providers,id'
+
 
         ]);
         $product= new Product($request->all());

@@ -16,9 +16,9 @@ class ProductProviderController extends Controller
      */
     public function index(Request $request)
     {
-        $productProviders = ProductProvider::all();
+       $productProviders = ProductProvider::all();
 
-        return view('productProviders/index', ['productProviders'=>$productProviders]);
+       return view('productProviders/index', ['productProviders'=>$productProviders]);
     }
 
     /**
@@ -113,4 +113,6 @@ class ProductProviderController extends Controller
         flash('Relación producto proveedor borrada correctamente');
         return redirect()->route('productProviders.index');
     }
+
+
 }

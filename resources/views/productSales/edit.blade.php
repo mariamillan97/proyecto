@@ -17,7 +17,7 @@
                         <div class="form-group">
                             {!! Form::label('quantity', 'Cantidad producto') !!}
 
-                            {!! Form::number('quantity',$productSale->product_id, ['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::number('quantity',$productSale->quantity, ['class'=>'form-control', 'required', 'autofocus']) !!}
 
                         </div>
 

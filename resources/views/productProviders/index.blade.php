@@ -13,8 +13,7 @@
                         @include('flash::message')
 
 
-
-                        <br><br>
+                        <br>
 
                         {!! Form::open(['route' => 'productProviders.create', 'method' => 'get', 'class'=>'inline-important']) !!}
                        {!!   Form::submit('Crear relación', ['class'=> 'btn btn-success'])!!}
